@@ -15,7 +15,7 @@ public class TeamSelection : MonoBehaviour
     {
         WriteOnJSON("StudentZero","Erick","Studious",10);
 
-        CreateTwoTeams();
+        CreateTwoTeams(studentsNames);
     }
 
     // Update is called once per frame
@@ -39,24 +39,30 @@ public class TeamSelection : MonoBehaviour
     }
 
 
-    void CreateTwoTeams()
+    void CreateTwoTeams(string []names)
     {
-        
-        
-        
-        for (int i = 0; i < studentsNames.Length; i++)
-        {
 
-             int n = Random.Range(0, studentsNames.Length);
-            if (!array.Contains(n))
-            {
-                    array[i] = n;
-                    Debug.Log(array[i]);
-            }
-            
+        for (int t = 0; t < names.Length; t++)
+        {
+            string tmp = names[t];
+            int r = Random.Range(t, names.Length);
+            names[t] = names[r];
+            names[r] = tmp;
         }
 
-       
+        //for (int i = 0; i < studentsNames.Length; i++)
+        //{
+
+        //     int n = Random.Range(0, studentsNames.Length);
+        //    if (!array.Contains(n))
+        //    {
+        //            array[i] = n;
+        //            Debug.Log(array[i]);
+        //    }
+
+        //}
+
+
         /*int n = Random.Range(0, studentsNames.Length);
 
         int r = Random.Range(0, studentsNames.Length);
