@@ -7,15 +7,20 @@ using System.Linq;
 
 public class TeamSelection : MonoBehaviour
 {
-    public int[] array = new int[9];
+    //public int[] array = new int[9];
     public string[] studentsNames;
-    int temp;
+    public string[] teamOne;
+    public string[] teamTwo;
+    public string[] teamThree;
+
     // Start is called before the first frame update
     void Start()
     {
         WriteOnJSON("StudentZero","Erick","Studious",10);
 
-        CreateTwoTeams(studentsNames);
+        ShuffleStudents(studentsNames);
+
+        CreateThreeTeams();
     }
 
     // Update is called once per frame
@@ -39,9 +44,8 @@ public class TeamSelection : MonoBehaviour
     }
 
 
-    void CreateTwoTeams(string []names)
+    void ShuffleStudents(string []names)
     {
-
         for (int t = 0; t < names.Length; t++)
         {
             string tmp = names[t];
@@ -49,34 +53,38 @@ public class TeamSelection : MonoBehaviour
             names[t] = names[r];
             names[r] = tmp;
         }
+    }
 
-        //for (int i = 0; i < studentsNames.Length; i++)
-        //{
-
-        //     int n = Random.Range(0, studentsNames.Length);
-        //    if (!array.Contains(n))
-        //    {
-        //            array[i] = n;
-        //            Debug.Log(array[i]);
-        //    }
-
-        //}
-
-
-        /*int n = Random.Range(0, studentsNames.Length);
-
-        int r = Random.Range(0, studentsNames.Length);
-        if (r==n)
+    void CreateTwoTeams()
+    {
+        for (int i = 0; i < 5; i++)
         {
-            int r1= Random.Range(0, studentsNames.Length);
+            teamOne[i] = studentsNames[i];
         }
-        //sacar 4 valores del array y hacer un while hasta que no se repita ningun valor 
 
-        /*for(int i = 0; i < studentsNames.Length; i++)
+        for (int i = 5; i < studentsNames.Length; i++)
         {
-            n=Random.Range(i+1, studentsNames.Length);   
+            teamTwo[i - 5] = studentsNames[i];
         }
-        Debug.Log(n);*/
+
+    }
+
+    void CreateThreeTeams()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            teamOne[i] = studentsNames[i];
+        }
+
+        for (int i = 3; i < studentsNames.Length-3; i++)
+        {
+            teamTwo[i - 3] = studentsNames[i];
+        }
+
+        for (int i = 6; i < studentsNames.Length; i++)
+        {
+            teamThree[i - 6] = studentsNames[i];
+        }
     }
 
 }
