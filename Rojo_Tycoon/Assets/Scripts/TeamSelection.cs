@@ -8,8 +8,7 @@ using System;
 
 public class TeamSelection : MonoBehaviour
 {
-    //public int[] array = new int[9];
-    //public string[] studentsNames;
+   
     public Students[] teamOne;
     public Students[] teamTwo;
     public Students[] teamThree;
@@ -19,18 +18,10 @@ public class TeamSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //WriteOnJSON("StudentZero","Erick","Studious",10);
-
-        //ShuffleStudents(studentsNames);
-
-        //CreateThreeTeams();
-
         //WriteOnJSONArray();
         ReadJsonArray();
         ShuffleStudents(students);
         CreateThreeTeams();
-
-
     }
 
     // Update is called once per frame
