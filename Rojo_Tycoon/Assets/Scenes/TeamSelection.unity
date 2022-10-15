@@ -430,31 +430,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876047b166f9cc743b50bf5ab83341c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  studentsNames:
-  - Angel
-  - Gal
-  - Lorenz
-  - Sebas
-  - Vale
-  - Daniel
-  - Ivan
-  - Axel
-  - Derard
-  teamOne:
-  - 
-  - 
-  - 
-  - 
-  - 
-  teamTwo:
-  - 
-  - 
-  - 
-  - 
-  teamThree:
-  - 
-  - 
-  - 
+  teamOne: []
+  teamTwo: []
+  teamThree: []
+  students: []
 --- !u!4 &1715367540
 Transform:
   m_ObjectHideFlags: 0
