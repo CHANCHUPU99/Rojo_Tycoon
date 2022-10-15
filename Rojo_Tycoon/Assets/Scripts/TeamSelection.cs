@@ -21,7 +21,7 @@ public class TeamSelection : MonoBehaviour
         //WriteOnJSONArray();
         ReadJsonArray();
         ShuffleStudents(students);
-        CreateThreeTeams();
+        //CreateThreeTeams();
     }
 
     // Update is called once per frame
@@ -112,7 +112,7 @@ public class TeamSelection : MonoBehaviour
         }
     }
 
-    void CreateTwoTeams()
+     public void CreateTwoTeams()
     {
         teamOne = new Students[4];
         teamTwo = new Students[4];
@@ -131,7 +131,7 @@ public class TeamSelection : MonoBehaviour
 
     }
 
-    void CreateThreeTeams()
+    public void CreateThreeTeams()
     {
         teamOne = new Students[3];
         teamTwo = new Students[3];
