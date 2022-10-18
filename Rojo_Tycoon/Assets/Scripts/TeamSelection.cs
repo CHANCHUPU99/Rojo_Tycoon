@@ -119,24 +119,6 @@ public class TeamSelection : MonoBehaviour
 
     }
 
-    //void CallCard(int i)
-    //{
-
-    //    string Imagepath = Application.streamingAssetsPath + "/" + card[i].pathImage;
-
-    //    byte[] imageBytes = File.ReadAllBytes(Imagepath);
-
-    //    Texture2D texture2D = new Texture2D(2, 2);
-
-    //    texture2D.LoadImage(imageBytes);
-
-    //    rawImage.texture = texture2D;
-
-    //    //textName.text = cardName.name;
-    //    //textDescription.text = cardName.description;
-    //    //textAttack.text = cardName.attack.ToString();
-    //    //textType.text = cardName.number.ToString();
-    //}
     void ShuffleStudents(Students[] studentNames)
     {
         for (int t = 0; t < studentNames.Length; t++)
@@ -195,7 +177,6 @@ public class TeamSelection : MonoBehaviour
 
         WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
     }
-
 
 }
     public static class JsonHelper
