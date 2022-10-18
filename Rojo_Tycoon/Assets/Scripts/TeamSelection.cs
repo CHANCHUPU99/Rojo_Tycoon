@@ -66,6 +66,42 @@ public class TeamSelection : MonoBehaviour
 
     }
 
+    void WriteTwoTeamsOnJSON(Students[] teamOne, Students[] teamTwo)
+    {
+        string pathOne = Application.streamingAssetsPath + "/" + "teamOneOfTwo.json";
+        Students[] team_One = teamOne;
+
+        string json = JsonHelper.ToJson(team_One, true);
+        File.WriteAllText(pathOne, json);
+
+        string pathTwo = Application.streamingAssetsPath + "/" + "teamTwoOfTwo.json";
+        Students[] team_Two = teamTwo;
+
+        string jsonTwo = JsonHelper.ToJson(team_Two, true);
+        File.WriteAllText(pathTwo, jsonTwo);
+    }
+
+    void WriteThreeTeamsOnJSON(Students[] teamOne, Students[] teamTwo, Students [] teamThree)
+    {
+        string pathOne = Application.streamingAssetsPath + "/" + "teamOneOfThree.json";
+        Students[] team_One = teamOne;
+
+        string json = JsonHelper.ToJson(team_One, true);
+        File.WriteAllText(pathOne, json);
+
+        string pathTwo = Application.streamingAssetsPath + "/" + "teamTwoOfThree.json";
+        Students[] team_Two = teamTwo;
+
+        string jsonTwo = JsonHelper.ToJson(team_Two, true);
+        File.WriteAllText(pathTwo, jsonTwo);
+
+        string pathThree = Application.streamingAssetsPath + "/" + "teamThreeOfThree.json";
+        Students[] team_Three = teamThree;
+
+        string jsonThree = JsonHelper.ToJson(team_Three, true);
+        File.WriteAllText(pathThree, jsonThree);
+    }
+
     void ReadJsonArray()
     {
         string path = Application.streamingAssetsPath + "/" + "StudentsObjectArray.json";
@@ -112,7 +148,7 @@ public class TeamSelection : MonoBehaviour
         }
     }
 
-     public void CreateTwoTeams()
+    public void CreateTwoTeams()
     {
         teamOne = new Students[4];
         teamTwo = new Students[4];
@@ -129,6 +165,8 @@ public class TeamSelection : MonoBehaviour
             Debug.Log(students[i].name + " is team two");
         }
 
+        WriteTwoTeamsOnJSON(teamOne, teamTwo);
+        
     }
 
     public void CreateThreeTeams()
@@ -154,6 +192,8 @@ public class TeamSelection : MonoBehaviour
             teamThree[i - 6] = students[i];
             Debug.Log(students[i].name + " is team three");
         }
+
+        WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
     }
 
 
