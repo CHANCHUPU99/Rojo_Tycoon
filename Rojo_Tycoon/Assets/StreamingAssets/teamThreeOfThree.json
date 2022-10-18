@@ -1,0 +1,20 @@
+{
+    "Items": [
+        {
+            "name": "Luis",
+            "personality": "Creativo, pero no le sabe",
+            "responsibilityLevel": 50,
+            "labor": 50,
+            "creativity": 90,
+            "imagePath": ""
+        },
+        {
+            "name": "Fernanda",
+            "personality": "Trabaja duro y es dedicada",
+            "responsibilityLevel": 70,
+            "labor": 90,
+            "creativity": 50,
+            "imagePath": ""
+        }
+    ]
+}

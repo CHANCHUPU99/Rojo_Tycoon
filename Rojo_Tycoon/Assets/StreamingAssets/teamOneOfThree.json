@@ -1,0 +1,28 @@
+{
+    "Items": [
+        {
+            "name": "Camila",
+            "personality": "Le sabe, pero es muy introvertida",
+            "responsibilityLevel": 80,
+            "labor": 70,
+            "creativity": 60,
+            "imagePath": ""
+        },
+        {
+            "name": "Javier",
+            "personality": "Creativo, pero muy procastinador",
+            "responsibilityLevel": 20,
+            "labor": 40,
+            "creativity": 100,
+            "imagePath": ""
+        },
+        {
+            "name": "Santiago",
+            "personality": "Le sabe y es trabajador",
+            "responsibilityLevel": 90,
+            "labor": 100,
+            "creativity": 70,
+            "imagePath": ""
+        }
+    ]
+}

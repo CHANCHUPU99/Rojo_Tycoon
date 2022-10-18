@@ -1,0 +1,36 @@
+{
+    "Items": [
+        {
+            "name": "Maria",
+            "personality": "Se esfuerza por entender",
+            "responsibilityLevel": 80,
+            "labor": 80,
+            "creativity": 50,
+            "imagePath": ""
+        },
+        {
+            "name": "Javier",
+            "personality": "Creativo, pero muy procastinador",
+            "responsibilityLevel": 20,
+            "labor": 40,
+            "creativity": 100,
+            "imagePath": ""
+        },
+        {
+            "name": "Luis",
+            "personality": "Creativo, pero no le sabe",
+            "responsibilityLevel": 50,
+            "labor": 50,
+            "creativity": 90,
+            "imagePath": ""
+        },
+        {
+            "name": "Diego",
+            "personality": "Le sabe y es lider",
+            "responsibilityLevel": 100,
+            "labor": 90,
+            "creativity": 70,
+            "imagePath": ""
+        }
+    ]
+}
