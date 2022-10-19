@@ -26,7 +26,7 @@ public class GeneralProgression : MonoBehaviour
     }
     public void Start()
     {
-        tasks = Task.Nada;
+        tasks = Task.Trabajar;
     }
 
     void Update()
@@ -41,6 +41,11 @@ public class GeneralProgression : MonoBehaviour
         if(tasks==0)
         {
             act ++;
+            
+        }
+        else if (act >=max)
+        {
+            Debug.Log("Has completado tu proyecto");
         }
         switch (tasks)
         {
@@ -49,8 +54,10 @@ public class GeneralProgression : MonoBehaviour
             case Task.Nada:
                 break;
         }
+        
     }
 
+    
     public void RefreshSlider(float maxValue,float actValue)
     {
         float porcentaje;
@@ -59,5 +66,6 @@ public class GeneralProgression : MonoBehaviour
         value.text = porcentaje*100 + "%";
     }
 
+    
 
 }
