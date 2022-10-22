@@ -2,31 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
+
 
 public class Instantiate : MonoBehaviour
 {
     public Transform pos;
     public Transform posi;
     public GameObject[] buttons;
-    // Start is called before the first frame update
+    public TMP_Text text;
+    public TMP_Text text2;  
+    int randomNumber;   
+    int randomNumberTwo;
+    public GeneralProgression progression;
+
+    public ActivitiesManager[] activitiesManager;
+    public ActivitiesManager[] activitiesManagerTwo;
+  
     void Start()
 
     {
-        InstantiateButton();
-    }
-    public void InstantiateButton()
+        RandomActivity();
+        //InstantiateButton();
+    }    
+
+    public void RandomActivity()
     {
-        int n = Random.Range(0, buttons.Length);
-        GameObject b = Instantiate(buttons[n],pos.position, buttons[n].transform.rotation);
+        randomNumber = Random.Range(0,activitiesManager.Length);
+        text.text = activitiesManager[randomNumber].activity;
+        
 
-        int s = Random.Range(0, buttons.Length);
-        GameObject c = Instantiate(buttons[s], posi.position, buttons[s].transform.rotation);
-
+        randomNumberTwo=Random.Range(0,activitiesManagerTwo.Length);
+        text2.text = activitiesManagerTwo[randomNumberTwo].activity;
+    }
+    public void AddProgressButtonOne()
+    {
+        progression.RefreshSlider(activitiesManager[randomNumber].progressValue);
+        
     }
 
-    // Update is called once per frame
+    public void AddProgressButtonTwo()
+    {
+        progression.RefreshSlider(activitiesManagerTwo[randomNumberTwo].progressValue);
+    }
+
     void Update()
     {
 
     }
+    
 }

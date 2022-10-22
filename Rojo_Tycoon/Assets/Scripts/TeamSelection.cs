@@ -15,6 +15,7 @@ public class TeamSelection : MonoBehaviour
 
     public Students[] students;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -50,14 +51,14 @@ public class TeamSelection : MonoBehaviour
             string path = Application.streamingAssetsPath + "/" + "StudentsObjectArray.json";
             Students[] students = new Students[8];
 
-            students[0] = new Students("Luis", "Creativo, pero no le sabe", 50, 50, 90);
-            students[1] = new Students("Eric", "Creativo, pero lo intenta", 70, 70, 90);
-            students[2] = new Students("Javier", "Creativo, pero muy procastinador", 20, 40, 100);
-            students[3] = new Students("Maria", "Se esfuerza por entender", 80, 80, 50);
-            students[4] = new Students("Fernanda", "Trabaja duro y es dedicada", 70, 90, 50);
-            students[5] = new Students("Camila", "Le sabe, pero es muy introvertida", 80, 70, 60);
-            students[6] = new Students("Santiago", "Le sabe y es trabajador", 90, 100, 70);
-            students[7] = new Students("Diego", "Le sabe y es lider", 100, 90, 70);
+            students[0] = new Students("Luis", "Creativo, pero no le sabe", 50, 50, 90,0);
+            students[1] = new Students("Eric", "Creativo, pero lo intenta", 70, 70, 90, 0);
+            students[2] = new Students("Javier", "Creativo, pero muy procastinador", 20, 40, 100,0);
+            students[3] = new Students("Maria", "Se esfuerza por entender", 80, 80, 50, 0);
+            students[4] = new Students("Fernanda", "Trabaja duro y es dedicada", 70, 90, 50, 0);
+            students[5] = new Students("Camila", "Le sabe, pero es muy introvertida", 80, 70, 60, 0);
+            students[6] = new Students("Santiago", "Le sabe y es trabajador", 90, 100, 70, 0);
+            students[7] = new Students("Diego", "Le sabe y es lider", 100, 90, 70, 0);
 
             string json = JsonHelper.ToJson(students, true);
             File.WriteAllText(path, json);
