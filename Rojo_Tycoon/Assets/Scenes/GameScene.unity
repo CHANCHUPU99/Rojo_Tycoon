@@ -850,7 +850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 759, y: 431}
+  m_AnchoredPosition: {x: 759, y: 402}
   m_SizeDelta: {x: 309.9044, y: 131.7208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808355434
@@ -1338,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -805, y: 431}
+  m_AnchoredPosition: {x: -774, y: 404}
   m_SizeDelta: {x: 309.9044, y: 131.7208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522833429
@@ -1473,7 +1473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.5335, y: 402.05}
+  m_AnchoredPosition: {x: -8, y: 402.05}
   m_SizeDelta: {x: 1171.8726, y: 275.9831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529282021
@@ -1816,6 +1816,8 @@ MonoBehaviour:
     progressValue: 0
   - activity: trabjar un dia despues
     progressValue: 2
+  buttonOne: {fileID: 1522833427}
+  buttonTwo: {fileID: 808355432}
 --- !u!1 &2131338963
 GameObject:
   m_ObjectHideFlags: 0
