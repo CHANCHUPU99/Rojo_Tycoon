@@ -11,7 +11,8 @@ public class GeneralProgression : MonoBehaviour
     public float max;    
     public TextMeshProUGUI value;
     float maxValue = 100f;
-    float porcentaje = 0f;
+    float porcentajeUno = 0f;
+    float porcentajeDos = 0f;
 
     void Awake()
     {
@@ -19,44 +20,78 @@ public class GeneralProgression : MonoBehaviour
     }
     public void Start()
     {
-        ReadOnJSON();
+        ReadOnJSON(false);
     }
-    void Update()
+          
+    public void RefreshSlider(float actualValue, int ActualTeam)
     {
-       
-
-        
-    }           
-    public void RefreshSlider(float actualValue)
-    {
-        
-        float addValue=0f;
-        addValue = actualValue / maxValue;
-        porcentaje+=addValue;
-        progressSlider.value = porcentaje;
-        value.text = Mathf.Round( porcentaje*100) + "%";
-        WriteOnJSON(porcentaje);
-        Debug.Log(addValue);
+        switch(ActualTeam)
+        {
+            case 1:
+                ProgressSliderTeamOne(actualValue);
+                break;
+            case 2:
+                ProgressSliderTeamTwo(actualValue);
+                break;
+            default: break;
+        }  
     }
 
-
-    public void WriteOnJSON(float progress)
+    public void WriteOnJSON(float progressTeamOne, float progressTeamTwo)
     {
         string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
-        Teams teams = new Teams(progress);
+        Teams teams = new Teams(progressTeamOne);
         string json = JsonUtility.ToJson(teams, true);
         File.WriteAllText(path, json);
 
+        string pathTwo = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
+        Teams teamsTwo = new Teams(progressTeamTwo);
+        string jsonTwo = JsonUtility.ToJson(teamsTwo, true);
+        File.WriteAllText(pathTwo, jsonTwo);
     }
 
-    void ReadOnJSON()
+    public void ReadOnJSON(bool isTeamTwo)
     {
-        string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
-        string json = File.ReadAllText(path);
-        Teams teams = JsonUtility.FromJson<Teams>(json);
-        porcentaje = teams.progress;
-        progressSlider.value = porcentaje;
-        value.text = Mathf.Round(porcentaje * 100) + "%";
+        if(isTeamTwo == false)
+        {
+            string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
+            string json = File.ReadAllText(path);
+            Teams teams = JsonUtility.FromJson<Teams>(json);
+            porcentajeUno = teams.progress;
+            progressSlider.value = porcentajeUno;
+            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+        }
+        else
+        {
+            string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
+            string json = File.ReadAllText(path);
+            Teams teams = JsonUtility.FromJson<Teams>(json);
+            porcentajeDos = teams.progress;
+            progressSlider.value = porcentajeDos;
+            value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        }
+    }
+
+    void ProgressSliderTeamOne(float actualValue)
+    {
+        float addValue = 0f;
+        addValue = actualValue / maxValue;
+        porcentajeUno += addValue;
+        progressSlider.value = porcentajeUno;
+        value.text = Mathf.Round(porcentajeUno * 100) + "%";
+        WriteOnJSON(porcentajeUno, porcentajeDos);
+        Debug.Log(addValue);
+    }
+
+    void ProgressSliderTeamTwo(float actualValue)
+    {
+        float addValue = 0f;
+        addValue = actualValue / maxValue;
+        porcentajeDos += addValue;
+        progressSlider.value = porcentajeDos;
+        value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        WriteOnJSON(porcentajeUno, porcentajeDos);
+        Debug.Log(addValue);
     }
 
 }

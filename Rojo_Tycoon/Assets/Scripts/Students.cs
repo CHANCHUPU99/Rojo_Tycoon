@@ -23,7 +23,5 @@ public class Students
         this.labor = labor;
         this.creativity = creativity;
         this.projectProgress = projectProgress;
-        
     }
-
 }
