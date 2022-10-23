@@ -8,27 +8,17 @@ using System;
 
 public class TeamSelection : MonoBehaviour
 {
-   
     public Students[] teamOne;
     public Students[] teamTwo;
     public Students[] teamThree;
 
     public Students[] students;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         //WriteOnJSONArray();
         ReadJsonArray();
         ShuffleStudents(students);
-        //CreateThreeTeams();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     //void WriteOnJSON(string fileName,string name,string personality,int responsibility, int labor, int creativity)
@@ -64,7 +54,6 @@ public class TeamSelection : MonoBehaviour
             File.WriteAllText(path, json);
             print(json);
         }
-
     }
 
     void WriteTwoTeamsOnJSON(Students[] teamOne, Students[] teamTwo)
@@ -147,9 +136,7 @@ public class TeamSelection : MonoBehaviour
             teamTwo[i - 4] = students[i];
             Debug.Log(students[i].name + " is team two");
         }
-
-        WriteTwoTeamsOnJSON(teamOne, teamTwo);
-        
+        WriteTwoTeamsOnJSON(teamOne, teamTwo); 
     }
 
     public void CreateThreeTeams()

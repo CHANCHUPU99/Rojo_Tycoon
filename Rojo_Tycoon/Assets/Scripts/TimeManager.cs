@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstanciateButtons : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool teamDecisionsMade;
+    int daysLeft;
 
     // Update is called once per frame
     void Update()

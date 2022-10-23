@@ -8,16 +8,10 @@ public class TeamProgressManager : MonoBehaviour
 {
     Students[] teamOne;
     Students[] teamTwo;
-    // Start is called before the first frame update
+    
     void Start()
     {
         ReadTwoTeamsJsonArray();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void ReadTwoTeamsJsonArray()
@@ -33,8 +27,6 @@ public class TeamProgressManager : MonoBehaviour
 
         teamOne = JsonHelper.FromJson<Students>(json);
         teamTwo = JsonHelper.FromJson<Students>(jsonTwo);
-
-        //print(teamOne[0].name);
 
         foreach (Students student in teamOne)
         {
@@ -54,11 +46,5 @@ public class TeamProgressManager : MonoBehaviour
 
         print("Team one Total Productivity: " + teamOneProductivity);
         print("Team two Total Productivity: " + teamTwoProductivity);
-
-    }
-
-    void CountProductivity()
-    {
-
     }
 }
