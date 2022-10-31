@@ -14,11 +14,17 @@ public class TeamSelection : MonoBehaviour
 
     public Students[] students;
 
+    public Text studentsNames;
+    string actualName;
+    int indice;
     void Start()
     {
+        indice = 0;
         //WriteOnJSONArray();
         ReadJsonArray();
         ShuffleStudents(students);
+        ReadOnJSONArrayTeamOne();
+        //ReadOnJSONArrayTeamTwo();
     }
 
     //void WriteOnJSON(string fileName,string name,string personality,int responsibility, int labor, int creativity)
@@ -108,7 +114,60 @@ public class TeamSelection : MonoBehaviour
         students = studentsObjects;
 
     }
+    public void ReadOnJSONArrayTeamOne()
+    {
+        string path = Application.streamingAssetsPath + "/" + "teamOneOfTwo.json";
+        string json = File.ReadAllText(path);
 
+        Students[] teamOne = JsonHelper.FromJson<Students>(json);
+        foreach (Students student in teamOne)
+        {
+            //for (int i = 0; i < cardObjects.Length; i++)
+            //{
+            //CardObject cardObject = cardObjects[i];
+            if (indice < 4)
+            {
+
+
+                actualName = teamOne[indice].name;
+                studentsNames.text = actualName;
+                indice++;
+            }
+            else
+            {
+                actualName = teamOne[0].name;
+                studentsNames.text = actualName;
+                indice = 0;
+            }
+        }
+    }
+    /*public void ReadOnJSONArrayTeamTwo()
+    {
+        string path = Application.streamingAssetsPath + "/" + "teamTwoOfTwo.json";
+        string json = File.ReadAllText(path);
+
+        Students[] teamTwo = JsonHelper.FromJson<Students>(json);
+        foreach (Students student in teamTwo)
+        {
+            //for (int i = 0; i < cardObjects.Length; i++)
+            //{
+            //CardObject cardObject = cardObjects[i];
+            if (indiceDos < 4)
+            {
+
+
+                palabraActual = teamTwo[indiceDos].name;
+                textoPalabras.text = palabraActual;
+                indiceDos++;
+            }
+            else
+            {
+                palabraActual = teamTwo[0].name;
+                textoPalabras.text = palabraActual;
+                indiceDos = 0;
+            }
+        }
+    }*/
     void ShuffleStudents(Students[] studentNames)
     {
         for (int t = 0; t < studentNames.Length; t++)
