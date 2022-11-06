@@ -14,6 +14,7 @@ public class GeneralProgression : MonoBehaviour
     float porcentajeUno = 0f;
     float porcentajeDos = 0f;
 
+
     void Awake()
     {
         progressSlider = GetComponent<Slider>();    
@@ -52,6 +53,7 @@ public class GeneralProgression : MonoBehaviour
 
     public void ReadOnJSON(bool isTeamTwo)
     {
+        Debug.LogError("isTeamTwo on GP: " + isTeamTwo);
         if(isTeamTwo == false)
         {
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
