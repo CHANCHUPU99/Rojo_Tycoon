@@ -1940,6 +1940,52 @@ RectTransform:
   m_AnchoredPosition: {x: -8, y: 273.38}
   m_SizeDelta: {x: 354.5743, y: 125.5184}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1883898725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883898727}
+  - component: {fileID: 1883898726}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1883898726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883898725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c31ef1c5ac65b84a97ecdd587353a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiate: {fileID: 2121658970}
+  daysText: {fileID: 1434037684}
+--- !u!4 &1883898727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883898725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 595.1342, y: 153.66324, z: 258.84155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989678846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,9 +2264,11 @@ MonoBehaviour:
     progressValue: 2
   buttonOne: {fileID: 1522833427}
   buttonTwo: {fileID: 808355432}
+  numberOfChanges: 0
   activitiesLeftPerTeam: 5
   isTeamTwo: 0
   teamSelection: {fileID: 184413835}
+  timeManager: {fileID: 1883898726}
 --- !u!1 &2131338963
 GameObject:
   m_ObjectHideFlags: 0
