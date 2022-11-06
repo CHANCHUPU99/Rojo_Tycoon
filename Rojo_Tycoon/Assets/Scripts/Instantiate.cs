@@ -20,12 +20,17 @@ public class Instantiate : MonoBehaviour
     public GameObject buttonTwo;
 
     [HideInInspector]
+    public int numberOfChanges;
+
+    [HideInInspector]
     public int activitiesLeftPerTeam = 5;
     int ActualTeam = 1;
     [HideInInspector]
     public bool isTeamTwo = false;
 
     public TeamSelection teamSelection;
+
+    public TimeManager timeManager;
 
     void Start()
     {
@@ -59,6 +64,7 @@ public class Instantiate : MonoBehaviour
         
     }
 
+    // Corrutina para alentar la función de ShowTeamNames
     IEnumerator SlowBoolForTeamNames()
     {
 
@@ -104,5 +110,9 @@ public class Instantiate : MonoBehaviour
     void ChangeTeam(bool isTeamTwo)
     {
         progression.ReadOnJSON(isTeamTwo);
+
+        numberOfChanges++;
+
+        timeManager.CheckChangeTeam(numberOfChanges);
     }
 }
