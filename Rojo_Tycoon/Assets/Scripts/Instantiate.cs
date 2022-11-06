@@ -19,9 +19,13 @@ public class Instantiate : MonoBehaviour
     public GameObject buttonOne;
     public GameObject buttonTwo;
 
-    int activitiesLeftPerTeam = 4;
+    [HideInInspector]
+    public int activitiesLeftPerTeam = 5;
     int ActualTeam = 1;
-    bool isTeamTwo;
+    [HideInInspector]
+    public bool isTeamTwo = false;
+
+    public TeamSelection teamSelection;
 
     void Start()
     {
@@ -50,6 +54,16 @@ public class Instantiate : MonoBehaviour
         buttonTwo.SetActive(true);
 
         activitiesLeftPerTeam--;
+
+        StartCoroutine(SlowBoolForTeamNames());
+        
+    }
+
+    IEnumerator SlowBoolForTeamNames()
+    {
+
+        yield return new WaitForSeconds(.1f*Time.deltaTime);
+        teamSelection.ShowTeamNames(isTeamTwo);
     }
 
     public void TurnOffButton()

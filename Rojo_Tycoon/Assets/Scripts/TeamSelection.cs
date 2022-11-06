@@ -17,13 +17,21 @@ public class TeamSelection : MonoBehaviour
     public Text studentsNames;
     string actualName;
     int indice;
+
+    
+    //public GeneralProgression generalProgression;
+
+    bool isTeamtwo;
+
     void Start()
     {
+        
         indice = 0;
         //WriteOnJSONArray();
-        ReadJsonArray();
-        ShuffleStudents(students);
-        ReadOnJSONArrayTeamOne();
+        //ReadJsonArray();
+        //ShuffleStudents(students);
+        //ShowTeamNames(isTeamtwo);
+        
         //ReadOnJSONArrayTeamTwo();
     }
 
@@ -114,60 +122,72 @@ public class TeamSelection : MonoBehaviour
         students = studentsObjects;
 
     }
-    public void ReadOnJSONArrayTeamOne()
+
+    public void ShowTeamNames(bool isTeamTwo)
     {
-        string path = Application.streamingAssetsPath + "/" + "teamOneOfTwo.json";
-        string json = File.ReadAllText(path);
-
-        Students[] teamOne = JsonHelper.FromJson<Students>(json);
-        foreach (Students student in teamOne)
+        
+        //print("isTeamTwo condition :" + instantiate.isTeamTwo);
+        Debug.LogWarning("isTeamTwo condition :" + isTeamTwo);
+        if (!isTeamTwo)
         {
-            //for (int i = 0; i < cardObjects.Length; i++)
-            //{
-            //CardObject cardObject = cardObjects[i];
-            if (indice < 4)
+            //"teamOneOfTwo.json"
+            string path = Application.streamingAssetsPath + "/" + "teamOneOfTwo.json";
+            string json = File.ReadAllText(path);
+
+            Students[] teamNames = JsonHelper.FromJson<Students>(json);
+      
+            if (indice < teamNames.Length)
             {
+                studentsNames.text = teamNames[indice].name;
 
-
-                actualName = teamOne[indice].name;
-                studentsNames.text = actualName;
+                print(indice);
+                print(teamNames[indice].name);
+                
                 indice++;
-            }
-            else
-            {
-                actualName = teamOne[0].name;
-                studentsNames.text = actualName;
-                indice = 0;
-            }
-        }
-    }
-    /*public void ReadOnJSONArrayTeamTwo()
-    {
-        string path = Application.streamingAssetsPath + "/" + "teamTwoOfTwo.json";
-        string json = File.ReadAllText(path);
+                //if(indice >= teamNames.Length)
+                //{
+                //    instantiate.activitiesLeftPerTeam = 0;
+                //    indice = 0;
 
-        Students[] teamTwo = JsonHelper.FromJson<Students>(json);
-        foreach (Students student in teamTwo)
+                //}
+                if (indice >= teamNames.Length)
+                {
+                    indice = 0;
+                }
+            }
+       
+        }
+        else
         {
-            //for (int i = 0; i < cardObjects.Length; i++)
-            //{
-            //CardObject cardObject = cardObjects[i];
-            if (indiceDos < 4)
-            {
+            string path = Application.streamingAssetsPath + "/" + "teamTwoOfTwo.json";
+            string json = File.ReadAllText(path);
 
+            Students[] teamNames = JsonHelper.FromJson<Students>(json);
 
-                palabraActual = teamTwo[indiceDos].name;
-                textoPalabras.text = palabraActual;
-                indiceDos++;
-            }
-            else
+            if (indice < teamNames.Length)
             {
-                palabraActual = teamTwo[0].name;
-                textoPalabras.text = palabraActual;
-                indiceDos = 0;
+                studentsNames.text = teamNames[indice].name;
+
+                print(teamNames[indice].name);
+                print(indice);
+
+                indice++;
+
+                //if (indice >= teamNames.Length)
+                //{
+                //    instantiate.activitiesLeftPerTeam = 0;
+                //    indice = 0;
+                //}
+                if (indice >= teamNames.Length)
+                {
+                    indice = 0;
+                }
             }
-        }
-    }*/
+          
+            
+        } 
+    }
+   
     void ShuffleStudents(Students[] studentNames)
     {
         for (int t = 0; t < studentNames.Length; t++)
