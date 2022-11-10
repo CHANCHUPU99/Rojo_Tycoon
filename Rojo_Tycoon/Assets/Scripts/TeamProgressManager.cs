@@ -44,7 +44,7 @@ public class TeamProgressManager : MonoBehaviour
             studentGeneralStatus = 0;
         }
 
-        print("Team one Total Productivity: " + teamOneProductivity);
-        print("Team two Total Productivity: " + teamTwoProductivity);
+        //print("Team one Total Productivity: " + teamOneProductivity);
+        //print("Team two Total Productivity: " + teamTwoProductivity);
     }
 }

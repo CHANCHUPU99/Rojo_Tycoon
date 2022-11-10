@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using System;
+using TMPro;
 
 public class TeamSelection : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class TeamSelection : MonoBehaviour
     string actualName;
     int indice;
 
-    
+    public TMP_Text ActualTeamText;
+    string ActualTeam = "Team One";
+
     //public GeneralProgression generalProgression;
 
     bool isTeamtwo;
@@ -127,7 +130,7 @@ public class TeamSelection : MonoBehaviour
     {
         
         //print("isTeamTwo condition :" + instantiate.isTeamTwo);
-        Debug.LogWarning("isTeamTwo condition :" + isTeamTwo);
+        //Debug.LogWarning("isTeamTwo condition :" + isTeamTwo);
         if (!isTeamTwo)
         {
             //"teamOneOfTwo.json"
@@ -135,13 +138,16 @@ public class TeamSelection : MonoBehaviour
             string json = File.ReadAllText(path);
 
             Students[] teamNames = JsonHelper.FromJson<Students>(json);
-      
+
+            ActualTeam = "Team One";
+            ActualTeamText.text = ActualTeam;
+
             if (indice < teamNames.Length)
             {
                 studentsNames.text = teamNames[indice].name;
 
-                print(indice);
-                print(teamNames[indice].name);
+                //print(indice);
+                //print(teamNames[indice].name);
                 
                 indice++;
                 //if(indice >= teamNames.Length)
@@ -164,12 +170,15 @@ public class TeamSelection : MonoBehaviour
 
             Students[] teamNames = JsonHelper.FromJson<Students>(json);
 
+            ActualTeam = "Teams Two";
+            ActualTeamText.text = ActualTeam;
+
             if (indice < teamNames.Length)
             {
                 studentsNames.text = teamNames[indice].name;
 
-                print(teamNames[indice].name);
-                print(indice);
+                //print(teamNames[indice].name);
+                //print(indice);
 
                 indice++;
 
@@ -207,13 +216,13 @@ public class TeamSelection : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             teamOne[i] = students[i];
-            Debug.Log(students[i].name + " is team one");
+            //Debug.Log(students[i].name + " is team one");
         }
 
         for (int i = 4; i < students.Length; i++)
         {
             teamTwo[i - 4] = students[i];
-            Debug.Log(students[i].name + " is team two");
+            //Debug.Log(students[i].name + " is team two");
         }
         WriteTwoTeamsOnJSON(teamOne, teamTwo); 
     }
@@ -227,19 +236,19 @@ public class TeamSelection : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             teamOne[i] = students[i];
-            Debug.Log(students[i].name + " is team one");
+            //Debug.Log(students[i].name + " is team one");
         }
 
         for (int i = 3; i < students.Length - 2; i++)
         {
             teamTwo[i - 3] = students[i];
-            Debug.Log(students[i].name + " is team two");
+            //Debug.Log(students[i].name + " is team two");
         }
 
         for (int i = 6; i < students.Length; i++)
         {
             teamThree[i - 6] = students[i];
-            Debug.Log(students[i].name + " is team three");
+            //Debug.Log(students[i].name + " is team three");
         }
 
         WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);

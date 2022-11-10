@@ -6,7 +6,8 @@ using TMPro;
 
 public class Instantiate : MonoBehaviour
 {
-    public GameObject[] buttons;
+    public Button nextStudentButton;
+
     public TMP_Text text;
     public TMP_Text text2;  
     int randomNumber;   
@@ -35,6 +36,8 @@ public class Instantiate : MonoBehaviour
     void Start()
     {
         RandomActivity();
+        DisableButton();
+
     }
 
     private void Update()
@@ -43,7 +46,7 @@ public class Instantiate : MonoBehaviour
         {
             isTeamTwo = !isTeamTwo;
             ChangeTeam(isTeamTwo);
-            print("cambio equipo");
+            //print("cambio equipo");
             activitiesLeftPerTeam = 4;
         }
     }
@@ -61,6 +64,8 @@ public class Instantiate : MonoBehaviour
         activitiesLeftPerTeam--;
 
         StartCoroutine(SlowBoolForTeamNames());
+
+        DisableButton();
         
     }
 
@@ -90,6 +95,8 @@ public class Instantiate : MonoBehaviour
        }
        progression.RefreshSlider(activitiesManager[randomNumber].progressValue, ActualTeam);
        TurnOffButton();
+
+        ActivateButton();
     }
 
     public void AddProgressButtonTwo()
@@ -104,6 +111,8 @@ public class Instantiate : MonoBehaviour
             ActualTeam = 2;
         }
         progression.RefreshSlider(activitiesManagerTwo[randomNumberTwo].progressValue, ActualTeam);
+
+        ActivateButton();
         TurnOffButton();
     }
 
@@ -115,4 +124,28 @@ public class Instantiate : MonoBehaviour
 
         timeManager.CheckChangeTeam(numberOfChanges);
     }
+
+    public void DisableButton() 
+    { 
+        nextStudentButton.interactable = false;
+        nextStudentButton.image.canvasRenderer.SetAlpha(5f);
+    }
+
+    public void ActivateButton()
+    {
+        nextStudentButton.interactable = true;
+        nextStudentButton.image.canvasRenderer.SetAlpha(100f);
+    }
+
+    //IEnumerator WaitDisableButton()
+    //{
+    //    yield return new WaitForSeconds(.1f);
+    //    DisableButton();
+    //}
+
+    //IEnumerator WaitActivateButton()
+    //{
+    //    yield return new WaitForSeconds(.1f);
+    //    ActivateButton();
+    //}
 }
