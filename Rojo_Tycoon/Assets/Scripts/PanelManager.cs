@@ -9,11 +9,7 @@ public class PanelManager : MonoBehaviour
     public GameObject buttonToDisable;
     public GameObject panelTwoTeams;
     public GameObject panelThreeTeams;
-    
-    void Start()
-    {
-        
-    }
+
     public void ShowPanel(bool twoTeams)
     {
         if (twoTeams)
@@ -28,12 +24,5 @@ public class PanelManager : MonoBehaviour
             panelThreeTeams.SetActive(true);
             panelTwoTeams.SetActive(false);
         }
-
-    }
-    
-   
-    void Update()
-    {
-        
     }
 }

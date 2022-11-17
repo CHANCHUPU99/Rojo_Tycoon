@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TeamSelection.unity
+    guid: 9fdf72b8a0c442c46a4e4a034f1623d9
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 7af9e49698e84bf4097a7af4d8718349
+  - enabled: 1
+    path: Assets/Scenes/RojoEvaluation.unity
+    guid: 985375244edc43e41a9c68f2adc17bcf
   m_configObjects: {}

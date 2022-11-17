@@ -15,6 +15,8 @@ public class GeneralProgression : MonoBehaviour
     float porcentajeUno = 0f;
     float porcentajeDos = 0f;
 
+    public TeamProgressManager teamProgressManager;
+
     void Awake()
     {
         progressSlider = GetComponent<Slider>();    
@@ -30,10 +32,10 @@ public class GeneralProgression : MonoBehaviour
         switch(ActualTeam)
         {
             case 1:
-                ProgressSliderTeamOne(actualValue);
+                ProgressSliderTeamOne(NewProgressValue(actualValue, true));
                 break;
             case 2:
-                ProgressSliderTeamTwo(actualValue);
+                ProgressSliderTeamTwo(NewProgressValue(actualValue, false));
                 break;
             default: break;
         }  
@@ -51,7 +53,7 @@ public class GeneralProgression : MonoBehaviour
         string jsonTwo = JsonUtility.ToJson(teamsTwo, true);
         File.WriteAllText(pathTwo, jsonTwo);
 
-        print("Se llamo escribir json");
+        //print("Se llamo escribir json");
     }
 
     public void ReadOnJSON(bool isTeamTwo)
@@ -109,4 +111,17 @@ public class GeneralProgression : MonoBehaviour
         Debug.LogWarning("Se guardo en json: " + addValue);
     }
 
+    float NewProgressValue(float actualValue, bool TeamOne)
+    {
+        if(TeamOne)
+        {
+            float newProgressValue = actualValue* teamProgressManager.teamOneProductivity / 100f;
+            return newProgressValue;
+        }
+        else
+        {
+            float newProgressValue = actualValue * teamProgressManager.teamTwoProductivity / 100f;
+            return newProgressValue;
+        }
+    }
 }
