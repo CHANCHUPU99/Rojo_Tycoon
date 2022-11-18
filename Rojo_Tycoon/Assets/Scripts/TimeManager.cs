@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
     public Slider slider;
     public Button button;
     public Button button2;
-    public Text text;
+    public TMP_Text text;
     public TMP_Text textTeams;
 
 

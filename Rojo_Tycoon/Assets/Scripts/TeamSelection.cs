@@ -15,7 +15,7 @@ public class TeamSelection : MonoBehaviour
 
     public Students[] students;
 
-    public Text studentsNames;
+    public TMP_Text studentsNames;
     string actualName;
     int indice;
 
@@ -31,8 +31,8 @@ public class TeamSelection : MonoBehaviour
         
         indice = 0;
         //WriteOnJSONArray();
-        //ReadJsonArray();
-        //ShuffleStudents(students);
+        ReadJsonArray();
+        ShuffleStudents(students);
         //ShowTeamNames(isTeamtwo);
         
         //ReadOnJSONArrayTeamTwo();
@@ -88,33 +88,33 @@ public class TeamSelection : MonoBehaviour
         File.WriteAllText(pathTwo, jsonTwo);
     }
 
-    void WriteThreeTeamsOnJSON(Students[] teamOne, Students[] teamTwo, Students [] teamThree)
-    {
-        string pathOne = Application.streamingAssetsPath + "/" + "teamOneOfThree.json";
-        Students[] team_One = teamOne;
+    //void WriteThreeTeamsOnJSON(Students[] teamOne, Students[] teamTwo, Students [] teamThree)
+    //{
+    //    string pathOne = Application.streamingAssetsPath + "/" + "teamOneOfThree.json";
+    //    Students[] team_One = teamOne;
 
-        string json = JsonHelper.ToJson(team_One, true);
-        File.WriteAllText(pathOne, json);
+    //    string json = JsonHelper.ToJson(team_One, true);
+    //    File.WriteAllText(pathOne, json);
 
-        string pathTwo = Application.streamingAssetsPath + "/" + "teamTwoOfThree.json";
-        Students[] team_Two = teamTwo;
+    //    string pathTwo = Application.streamingAssetsPath + "/" + "teamTwoOfThree.json";
+    //    Students[] team_Two = teamTwo;
 
-        string jsonTwo = JsonHelper.ToJson(team_Two, true);
-        File.WriteAllText(pathTwo, jsonTwo);
+    //    string jsonTwo = JsonHelper.ToJson(team_Two, true);
+    //    File.WriteAllText(pathTwo, jsonTwo);
 
-        string pathThree = Application.streamingAssetsPath + "/" + "teamThreeOfThree.json";
-        Students[] team_Three = teamThree;
+    //    string pathThree = Application.streamingAssetsPath + "/" + "teamThreeOfThree.json";
+    //    Students[] team_Three = teamThree;
 
-        string jsonThree = JsonHelper.ToJson(team_Three, true);
-        File.WriteAllText(pathThree, jsonThree);
-    }
+    //    string jsonThree = JsonHelper.ToJson(team_Three, true);
+    //    File.WriteAllText(pathThree, jsonThree);
+    //}
 
     void ReadJsonArray()
     {
         string path = Application.streamingAssetsPath + "/" + "StudentsObjectArray.json";
         string json = File.ReadAllText(path);
 
-        Students[] studentsObjects = JsonHelper.FromJson<Students>(json);
+        Students[] m_studentsObjects = JsonHelper.FromJson<Students>(json);
 
         //foreach (Students credentials in studentsObjects)
         //{
@@ -122,7 +122,7 @@ public class TeamSelection : MonoBehaviour
         //    print(credentials.responsibilityLevel);
         //}
 
-        students = studentsObjects;
+        students = m_studentsObjects;
 
     }
 
@@ -213,46 +213,46 @@ public class TeamSelection : MonoBehaviour
         teamOne = new Students[4];
         teamTwo = new Students[4];
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < teamOne.Length; i++)
         {
             teamOne[i] = students[i];
-            //Debug.Log(students[i].name + " is team one");
+            Debug.Log(students[i].name + " is team one");
         }
 
         for (int i = 4; i < students.Length; i++)
         {
             teamTwo[i - 4] = students[i];
-            //Debug.Log(students[i].name + " is team two");
+            Debug.Log(students[i].name + " is team two");
         }
         WriteTwoTeamsOnJSON(teamOne, teamTwo); 
     }
 
-    public void CreateThreeTeams()
-    {
-        teamOne = new Students[3];
-        teamTwo = new Students[3];
-        teamThree = new Students[2];
+//    public void CreateThreeTeams()
+//    {
+//        teamOne = new Students[3];
+//        teamTwo = new Students[3];
+//        teamThree = new Students[2];
 
-        for (int i = 0; i < 3; i++)
-        {
-            teamOne[i] = students[i];
-            //Debug.Log(students[i].name + " is team one");
-        }
+//        for (int i = 0; i < 3; i++)
+//        {
+//            teamOne[i] = students[i];
+//            //Debug.Log(students[i].name + " is team one");
+//        }
 
-        for (int i = 3; i < students.Length - 2; i++)
-        {
-            teamTwo[i - 3] = students[i];
-            //Debug.Log(students[i].name + " is team two");
-        }
+//        for (int i = 3; i < students.Length - 2; i++)
+//        {
+//            teamTwo[i - 3] = students[i];
+//            //Debug.Log(students[i].name + " is team two");
+//        }
 
-        for (int i = 6; i < students.Length; i++)
-        {
-            teamThree[i - 6] = students[i];
-            //Debug.Log(students[i].name + " is team three");
-        }
+//        for (int i = 6; i < students.Length; i++)
+//        {
+//            teamThree[i - 6] = students[i];
+//            //Debug.Log(students[i].name + " is team three");
+//        }
 
-        WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
-    }
+//        WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
+//    }
 
 }
     public static class JsonHelper
