@@ -16,6 +16,7 @@ public class TeamSelection : MonoBehaviour
     public Students[] students;
 
     public TMP_Text studentsNames;
+    //public Text studentsNames;
     string actualName;
     int indice;
 
