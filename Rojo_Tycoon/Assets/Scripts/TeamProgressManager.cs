@@ -8,7 +8,10 @@ public class TeamProgressManager : MonoBehaviour
 {
     Students[] teamOne;
     Students[] teamTwo;
-    
+
+    public int teamOneProductivity = 0;
+    public int teamTwoProductivity = 0;
+
     void Start()
     {
         ReadTwoTeamsJsonArray();
@@ -16,8 +19,6 @@ public class TeamProgressManager : MonoBehaviour
 
     void ReadTwoTeamsJsonArray()
     {
-        int teamOneProductivity = 0;
-        int teamTwoProductivity = 0;
         int studentGeneralStatus;
 
         string path = Application.streamingAssetsPath + "/" + "teamOneOfTwo.json";

@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &47648231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2068,6 +2068,8 @@ MonoBehaviour:
   teamTwo: []
   teamThree: []
   students: []
+  studentsNames: {fileID: 0}
+  ActualTeamText: {fileID: 0}
 --- !u!4 &1715367540
 Transform:
   m_ObjectHideFlags: 0
