@@ -16,10 +16,18 @@ public class RojoEvaluation : MonoBehaviour
     public TMP_Text textTeamOne;
     public TMP_Text textTeamTwo;
 
+    float valorReprobatorio = .5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
-       // ReadOnJSON();
+       ReadOnJSON();
+
+        teamOneSlider.interactable = false;
+        teamTwoSlider.interactable = false;
+
+        RojoFinalEvaluation();
     }
 
     public void ReadOnJSON()
@@ -39,4 +47,43 @@ public class RojoEvaluation : MonoBehaviour
         textTeamTwo.text = Mathf.Round(porcentajeTeamTwo * 100) + "%";
         
     }
+
+
+    void RojoFinalEvaluation()
+    {
+        
+        if(porcentajeTeamOne < valorReprobatorio && porcentajeTeamTwo < valorReprobatorio)
+        {
+            print("Ambos Equipos reprobaron.");
+        }
+        else if(porcentajeTeamOne < valorReprobatorio || porcentajeTeamTwo < valorReprobatorio)
+        {
+            print("Un equipo reprobo.");
+            if (porcentajeTeamOne > valorReprobatorio)
+            {
+                print("Equipo Uno aprobo");
+            }
+            else if (porcentajeTeamTwo > valorReprobatorio)
+            {
+                print("Equipo Dos aprobo");
+            }
+        }
+        else
+        {
+            {
+                print("Ambos equipos aprobaron");
+            }
+        }
+
+
+        if(porcentajeTeamOne < porcentajeTeamTwo)
+        {
+            print("Gano Team Two");
+        }
+        else
+        {
+            print("Gano Team One");
+        }
+    }
+    
 }
