@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06881814, g: 0.06466047, b: 0.0464139, a: 1}
+  m_IndirectSpecularColor: {r: 0.06881809, g: 0.06466046, b: 0.046413995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15548,6 +15548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 100
   value: {fileID: 388492787}
+  teamOneText: {fileID: 0}
+  teamTwoText: {fileID: 0}
   teamProgressManager: {fileID: 1321120139}
 --- !u!1 &1531594461
 GameObject:
@@ -19747,7 +19749,7 @@ MonoBehaviour:
   text2: {fileID: 1039833820}
   progression: {fileID: 1529282022}
   activitiesManager:
-  - activity: Trabjar Mucho
+  - activity: Trabajar Mucho
     progressValue: 5
   - activity: Tomarte el dia
     progressValue: 0
@@ -19766,7 +19768,7 @@ MonoBehaviour:
     progressValue: 1
   - activity: procastinar
     progressValue: 0
-  - activity: trabjar a ultima hora
+  - activity: trabajar a ultima hora
     progressValue: 2
   - activity: Avanzar el HUD
     progressValue: 2

@@ -23,6 +23,9 @@ public class TeamSelection : MonoBehaviour
     public TMP_Text ActualTeamText;
     string ActualTeam = "Team One";
 
+    public TMP_Text nameText;
+    public TMP_Text personalityText;
+
     //public GeneralProgression generalProgression;
 
     bool isTeamtwo;
@@ -225,7 +228,14 @@ public class TeamSelection : MonoBehaviour
             teamTwo[i - 4] = students[i];
             Debug.Log(students[i].name + " is team two");
         }
-        WriteTwoTeamsOnJSON(teamOne, teamTwo); 
+        WriteTwoTeamsOnJSON(teamOne, teamTwo);
+        ShowTeamCards();
+    }
+
+    void ShowTeamCards()
+    {
+        nameText.text = teamOne[0].name;
+        personalityText.text = teamOne[0].personality;
     }
 
 //    public void CreateThreeTeams()

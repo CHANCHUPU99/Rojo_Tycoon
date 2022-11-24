@@ -14,6 +14,8 @@ public class GeneralProgression : MonoBehaviour
     float maxValue = 100f;
     float porcentajeUno = 0f;
     float porcentajeDos = 0f;
+    public TMP_Text teamOneText;
+    public TMP_Text teamTwoText;
 
     public TeamProgressManager teamProgressManager;
 
