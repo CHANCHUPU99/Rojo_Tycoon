@@ -18,6 +18,9 @@ public class RojoEvaluation : MonoBehaviour
 
     float valorReprobatorio = .5f;
 
+    public string[] evaluationPossibilities;
+    public TextMeshProUGUI evaluationText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -79,10 +82,13 @@ public class RojoEvaluation : MonoBehaviour
         if(porcentajeTeamOne < porcentajeTeamTwo)
         {
             print("Gano Team Two");
+            evaluationText.text=evaluationPossibilities[0];
+            Debug.Log(evaluationPossibilities[0]);
         }
         else
         {
             print("Gano Team One");
+            evaluationText.text=evaluationPossibilities[1];
         }
     }
     
