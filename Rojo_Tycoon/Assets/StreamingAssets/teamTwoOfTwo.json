@@ -10,6 +10,18 @@
             "imagePath": ""
         },
         {
+<<<<<<< Updated upstream
+=======
+            "name": "Santiago",
+            "personality": "Le sabe y es trabajador",
+            "responsibilityLevel": 90,
+            "labor": 100,
+            "creativity": 70,
+            "projectProgress": 0.0,
+            "imagePath": ""
+        },
+        {
+>>>>>>> Stashed changes
             "name": "Maria",
             "personality": "Se esfuerza por entender",
             "responsibilityLevel": 80,
@@ -19,11 +31,11 @@
             "imagePath": ""
         },
         {
-            "name": "Camila",
-            "personality": "Le sabe, pero es muy introvertida",
-            "responsibilityLevel": 80,
+            "name": "Eric",
+            "personality": "Creativo, pero lo intenta",
+            "responsibilityLevel": 70,
             "labor": 70,
-            "creativity": 60,
+            "creativity": 90,
             "projectProgress": 0.0,
             "imagePath": ""
         },
