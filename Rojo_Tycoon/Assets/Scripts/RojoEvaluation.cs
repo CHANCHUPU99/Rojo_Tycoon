@@ -58,6 +58,7 @@ public class RojoEvaluation : MonoBehaviour
         if(porcentajeTeamOne < valorReprobatorio && porcentajeTeamTwo < valorReprobatorio)
         {
             print("Ambos Equipos reprobaron.");
+            evaluationText.text = evaluationPossibilities[2];
         }
         else if(porcentajeTeamOne < valorReprobatorio || porcentajeTeamTwo < valorReprobatorio)
         {
@@ -82,13 +83,17 @@ public class RojoEvaluation : MonoBehaviour
         if(porcentajeTeamOne < porcentajeTeamTwo)
         {
             print("Gano Team Two");
-            evaluationText.text=evaluationPossibilities[0];
-            Debug.Log(evaluationPossibilities[0]);
+            evaluationText.text = evaluationPossibilities[0];
         }
-        else
+        else if(porcentajeTeamOne > porcentajeTeamTwo)
         {
             print("Gano Team One");
-            evaluationText.text=evaluationPossibilities[1];
+            evaluationText.text = evaluationPossibilities[1];
+        }
+        else if(porcentajeTeamOne == porcentajeTeamTwo)
+        {
+            print("Empate de equipos");
+            evaluationText.text = evaluationPossibilities[2];
         }
     }
     
