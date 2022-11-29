@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TeamSelection : MonoBehaviour
 {
@@ -30,9 +31,11 @@ public class TeamSelection : MonoBehaviour
 
     bool isTeamtwo;
 
+    public Button startGameButton;
+
     void Start()
     {
-        
+        DisabledStartButton();
         indice = 0;
         //WriteOnJSONArray();
         ReadJsonArray();
@@ -230,6 +233,8 @@ public class TeamSelection : MonoBehaviour
         }
         WriteTwoTeamsOnJSON(teamOne, teamTwo);
         ShowTeamCards();
+
+        EnabledStartButton();
     }
 
     void ShowTeamCards()
@@ -237,33 +242,49 @@ public class TeamSelection : MonoBehaviour
         nameText.text = teamOne[0].name;
         personalityText.text = teamOne[0].personality;
     }
+    public void DisabledStartButton()
+    {
+        startGameButton.interactable = false;
+        //startGameButton.canvasRenderer.SetAlpha(100f);
+    }
 
-//    public void CreateThreeTeams()
-//    {
-//        teamOne = new Students[3];
-//        teamTwo = new Students[3];
-//        teamThree = new Students[2];
+    public void EnabledStartButton()
+    {
+        startGameButton.interactable = true;
+        //startGameButton.canvasRenderer.SetAlpha(100f);
+    }
 
-//        for (int i = 0; i < 3; i++)
-//        {
-//            teamOne[i] = students[i];
-//            //Debug.Log(students[i].name + " is team one");
-//        }
+    public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
 
-//        for (int i = 3; i < students.Length - 2; i++)
-//        {
-//            teamTwo[i - 3] = students[i];
-//            //Debug.Log(students[i].name + " is team two");
-//        }
+    //    public void CreateThreeTeams()
+    //    {
+    //        teamOne = new Students[3];
+    //        teamTwo = new Students[3];
+    //        teamThree = new Students[2];
 
-//        for (int i = 6; i < students.Length; i++)
-//        {
-//            teamThree[i - 6] = students[i];
-//            //Debug.Log(students[i].name + " is team three");
-//        }
+    //        for (int i = 0; i < 3; i++)
+    //        {
+    //            teamOne[i] = students[i];
+    //            //Debug.Log(students[i].name + " is team one");
+    //        }
 
-//        WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
-//    }
+    //        for (int i = 3; i < students.Length - 2; i++)
+    //        {
+    //            teamTwo[i - 3] = students[i];
+    //            //Debug.Log(students[i].name + " is team two");
+    //        }
+
+    //        for (int i = 6; i < students.Length; i++)
+    //        {
+    //            teamThree[i - 6] = students[i];
+    //            //Debug.Log(students[i].name + " is team three");
+    //        }
+
+    //        WriteThreeTeamsOnJSON(teamOne, teamTwo, teamThree);
+    //    }
 
 }
     public static class JsonHelper
