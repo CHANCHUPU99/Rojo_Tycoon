@@ -2114,12 +2114,10 @@ MonoBehaviour:
   teamTwoSlider: {fileID: 1078975863}
   textTeamOne: {fileID: 2073540610}
   textTeamTwo: {fileID: 1393331520}
-  evaluationPossibilities:
-  - el equipo dos es el ganador
-  - el equipo uno es el ganador
-  - hola3
-  - hola4
-  evaluationText: {fileID: 986030866}
+  evaluationPossibilities: []
+  evaluationText: {fileID: 0}
+  evaluationTextTwo: {fileID: 0}
+  BlackScreenImage: {fileID: 0}
 --- !u!114 &1679384951
 MonoBehaviour:
   m_ObjectHideFlags: 0
