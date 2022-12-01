@@ -24,5 +24,7 @@ public class ResetData : MonoBehaviour
         Teams teamsTwo = new Teams(0f);
         string jsonTwo = JsonUtility.ToJson(teamsTwo, true);
         File.WriteAllText(pathTwo, jsonTwo);
+
+        SceneManager.LoadScene(1);
     }
 }
