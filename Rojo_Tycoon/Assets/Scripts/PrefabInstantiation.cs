@@ -6,13 +6,15 @@ using TMPro;
 
 public class PrefabInstantiation : MonoBehaviour
 {
-    public TMP_Text nameText;
-    public TMP_Text PersonalityText;
+    public TMP_Text[] nameText;
+    public TMP_Text[] PersonalityText;
 
     public GameObject prefab;
     public GameObject parentPrefab;
 
     public Transform[] CardPositionOne;
+
+    public TeamSelection teamSelection;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +24,11 @@ public class PrefabInstantiation : MonoBehaviour
             GameObject m_Instance = Instantiate(prefab, CardPositionOne[i].position, Quaternion.identity,
             parentPrefab.transform) as GameObject;
 
-            
+            print("Se instanció un prefab");
+
+            //nameText[0].text = "Se instanció un prefab";
         }
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

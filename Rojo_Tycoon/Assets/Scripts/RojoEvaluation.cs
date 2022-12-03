@@ -24,6 +24,8 @@ public class RojoEvaluation : MonoBehaviour
 
     public GameObject BlackScreenImage;
 
+    public GameObject ContinuarButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -103,13 +105,20 @@ public class RojoEvaluation : MonoBehaviour
             evaluationText.text = evaluationPossibilities[2];
         }
 
-        StartCoroutine(EnableBlackScreen());
+        //StartCoroutine(EnableBlackScreen());
     }
 
     IEnumerator EnableBlackScreen()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         BlackScreenImage.SetActive(true);
+        ContinuarButton.SetActive(false);
+            
+    }
+
+    public void StartCoroutine()
+    {
+        StartCoroutine(EnableBlackScreen());
     }
 }
 
