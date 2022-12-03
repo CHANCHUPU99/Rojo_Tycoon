@@ -34,8 +34,10 @@ public class TimeManager : MonoBehaviour
     private void Start()
     {
         
-        //_daysLeft.daysLeft = 10;
+        //_daysLeft.daysLeft = 2;
         daysText.text = _daysLeft.daysLeft.ToString();
+
+        //print(_daysLeft.daysLeft);
     }
 
     public void CheckChangeTeam(int numberOfChanges)
@@ -46,7 +48,7 @@ public class TimeManager : MonoBehaviour
             WriteDaysLeftJSON(daysLeftScript.daysLeft);
         }
         daysText.text = daysLeftScript.daysLeft.ToString();
-        if (_daysLeft.daysLeft <= 0)
+        if (daysLeftScript.daysLeft <= 0)
         {
             StartCoroutine(EvaluationNotice());
             WriteDaysLeftJSON(daysLeftScript.daysLeft);
