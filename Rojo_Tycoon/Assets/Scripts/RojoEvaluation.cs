@@ -7,6 +7,8 @@ using TMPro;
 
 public class RojoEvaluation : MonoBehaviour
 {
+    const float limitePorcentaje = 1.0f;
+
     public Slider teamOneSlider;
     public Slider teamTwoSlider;
 
@@ -44,15 +46,31 @@ public class RojoEvaluation : MonoBehaviour
         string json = File.ReadAllText(path);
         Teams teams = JsonUtility.FromJson<Teams>(json);
         porcentajeTeamOne = teams.progress;
-        teamOneSlider.value = porcentajeTeamOne;
-        textTeamOne.text = Mathf.Round(porcentajeTeamOne * 100) + "%";
+        if(porcentajeTeamOne < limitePorcentaje)
+        {
+            teamOneSlider.value = porcentajeTeamOne;
+            textTeamOne.text = Mathf.Round(porcentajeTeamOne * 100) + "%";
+        }
+        else
+        {
+            teamOneSlider.value = 1f;
+            textTeamOne.text = Mathf.Round(limitePorcentaje * 100) + "%";
+        }
            
         string pathTwo = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
         string jsonTwo = File.ReadAllText(pathTwo);
         Teams teamsTwo = JsonUtility.FromJson<Teams>(jsonTwo);
         porcentajeTeamTwo = teamsTwo.progress;
-        teamTwoSlider.value = porcentajeTeamTwo;
-        textTeamTwo.text = Mathf.Round(porcentajeTeamTwo * 100) + "%";
+        if(porcentajeTeamTwo < limitePorcentaje)
+        {
+            teamTwoSlider.value = porcentajeTeamTwo;
+            textTeamTwo.text = Mathf.Round(porcentajeTeamTwo * 100) + "%";
+        }
+        else
+        {
+            teamTwoSlider.value = porcentajeTeamTwo;
+            textTeamTwo.text = Mathf.Round(limitePorcentaje * 100) + "%";
+        }
         
     }
 
