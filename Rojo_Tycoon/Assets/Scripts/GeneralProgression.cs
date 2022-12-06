@@ -136,15 +136,15 @@ public class GeneralProgression : MonoBehaviour
         ////print("Valor en Json: " + porcentajeDos);
        
 
-        if (porcentajeUno < limitePorcentaje)
+        if (porcentajeDos < limitePorcentaje)
         {
-            porcentajeUno += addValue;
+            porcentajeDos += addValue;
             if (porcentajeDos > limitePorcentaje)
             {
                 porcentajeDos = limitePorcentaje;
             }
-            progressSlider.value = porcentajeUno;
-            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+            progressSlider.value = porcentajeDos;
+            value.text = Mathf.Round(porcentajeDos * 100) + "%";
         }
         else
         {
