@@ -13,6 +13,7 @@ public class PrefabInstantiation : MonoBehaviour
     public GameObject parentPrefab;
 
     public Transform[] CardPositionOne;
+    public Transform[] CardPositionTwo;
 
     public List<GameObject> prefabList;
 
