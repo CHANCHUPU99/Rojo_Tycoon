@@ -1,11 +1,20 @@
 {
     "Items": [
         {
-            "name": "Fernanda",
-            "personality": "Trabaja duro y es dedicada",
+            "name": "Eric",
+            "personality": "Creativo, pero lo intenta",
             "responsibilityLevel": 70,
-            "labor": 90,
-            "creativity": 50,
+            "labor": 70,
+            "creativity": 90,
+            "projectProgress": 0.0,
+            "imagePath": ""
+        },
+        {
+            "name": "Luis",
+            "personality": "Creativo, pero no le sabe",
+            "responsibilityLevel": 50,
+            "labor": 50,
+            "creativity": 90,
             "projectProgress": 0.0,
             "imagePath": ""
         },
@@ -19,20 +28,11 @@
             "imagePath": ""
         },
         {
-            "name": "Diego",
-            "personality": "Le sabe y es lider",
-            "responsibilityLevel": 100,
+            "name": "Fernanda",
+            "personality": "Trabaja duro y es dedicada",
+            "responsibilityLevel": 70,
             "labor": 90,
-            "creativity": 70,
-            "projectProgress": 0.0,
-            "imagePath": ""
-        },
-        {
-            "name": "Javier",
-            "personality": "Creativo, pero muy procastinador",
-            "responsibilityLevel": 20,
-            "labor": 40,
-            "creativity": 100,
+            "creativity": 50,
             "projectProgress": 0.0,
             "imagePath": ""
         }
