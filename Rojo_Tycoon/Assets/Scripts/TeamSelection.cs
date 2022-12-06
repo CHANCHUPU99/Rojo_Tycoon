@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class TeamSelection : MonoBehaviour
 {
+    public static TeamSelection instance;
     public PrefabInstantiation ID_Prefab;
     public Students[] teamOne;
     public Students[] teamTwo;
@@ -34,8 +35,14 @@ public class TeamSelection : MonoBehaviour
 
     public Button startGameButton;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
+        //instance = this;
         DisabledStartButton();
         indice = 0;
         //WriteOnJSONArray();
@@ -233,16 +240,16 @@ public class TeamSelection : MonoBehaviour
             Debug.Log(students[i].name + " is team two");
         }
         WriteTwoTeamsOnJSON(teamOne, teamTwo);
-        ShowTeamCards();
+        //ShowTeamCards();
 
         EnabledStartButton();
     }
 
-    void ShowTeamCards()
-    {
-        studentsNames.text = teamOne[0].name;
-        personalityText.text = teamOne[0].personality;
-    }
+    //void ShowTeamCards()
+    //{
+    //    studentsNames.text = teamOne[0].name;
+    //    personalityText.text = teamOne[0].personality;
+    //}
     public void DisabledStartButton()
     {
         startGameButton.interactable = false;
