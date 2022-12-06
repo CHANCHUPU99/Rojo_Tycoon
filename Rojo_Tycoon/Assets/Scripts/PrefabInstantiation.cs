@@ -11,6 +11,8 @@ public class PrefabInstantiation : MonoBehaviour
 
     public GameObject prefab;
     public GameObject parentPrefab;
+    public GameObject team1Panel;
+    public GameObject team2Panel;
 
     public Transform[] CardPositionOne;
     public Transform[] CardPositionTwo;
@@ -30,7 +32,7 @@ public class PrefabInstantiation : MonoBehaviour
             //parentPrefab.transform) as GameObject;
 
             prefabListOne.Add(Instantiate(prefab, CardPositionOne[i].position, Quaternion.identity,
-            parentPrefab.transform) as GameObject);
+            team1Panel.transform) as GameObject);
 
             print("Se instanció un prefab");
 
@@ -48,7 +50,7 @@ public class PrefabInstantiation : MonoBehaviour
         for (int i = 0; i < CardPositionTwo.Length; i++)
         {
             prefabListTwo.Add(Instantiate(prefab, CardPositionTwo[i].position, Quaternion.identity,
-            parentPrefab.transform) as GameObject);
+            team2Panel.transform) as GameObject);
         }
 
         for (int i = 0; i < prefabListTwo.Count; i++)

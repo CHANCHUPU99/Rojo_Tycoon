@@ -10,11 +10,11 @@
             "imagePath": ""
         },
         {
-            "name": "Camila",
-            "personality": "Le sabe, pero es muy introvertida",
-            "responsibilityLevel": 80,
-            "labor": 70,
-            "creativity": 60,
+            "name": "Javier",
+            "personality": "Creativo, pero muy procastinador",
+            "responsibilityLevel": 20,
+            "labor": 40,
+            "creativity": 100,
             "projectProgress": 0.0,
             "imagePath": ""
         },
@@ -28,10 +28,10 @@
             "imagePath": ""
         },
         {
-            "name": "Diego",
-            "personality": "Le sabe y es lider",
-            "responsibilityLevel": 100,
-            "labor": 90,
+            "name": "Santiago",
+            "personality": "Le sabe y es trabajador",
+            "responsibilityLevel": 90,
+            "labor": 100,
             "creativity": 70,
             "projectProgress": 0.0,
             "imagePath": ""
