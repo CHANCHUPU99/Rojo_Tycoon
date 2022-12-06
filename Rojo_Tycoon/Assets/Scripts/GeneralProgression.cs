@@ -8,6 +8,8 @@ using System.IO;
 
 public class GeneralProgression : MonoBehaviour
 {
+    const float limitePorcentaje = 1.0f;
+
     Slider progressSlider;
     public float max;    
     public TextMeshProUGUI value;
@@ -63,12 +65,12 @@ public class GeneralProgression : MonoBehaviour
         //Debug.LogError("isTeamTwo on GP: " + isTeamTwo);
         if(isTeamTwo == false)
         {
+            
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             string json = File.ReadAllText(path);
             Teams teams = JsonUtility.FromJson<Teams>(json);
-            porcentajeUno = teams.progress;
-            progressSlider.value = porcentajeUno;
-            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+            ShowDataFromJson(teams);
+            
             Debug.Log("Se leyó equipo uno");
 
             string path2 = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
@@ -81,9 +83,11 @@ public class GeneralProgression : MonoBehaviour
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
             string json = File.ReadAllText(path);
             Teams teams = JsonUtility.FromJson<Teams>(json);
-            porcentajeDos = teams.progress;
-            progressSlider.value = porcentajeDos;
-            value.text = Mathf.Round(porcentajeDos * 100) + "%";
+            //porcentajeDos = teams.progress;
+            //progressSlider.value = porcentajeDos;
+            //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+            //Debug.Log("Se leyó equipo Dos");
+            ShowDataFromJsonTeamTwo(teams);
             Debug.Log("Se leyó equipo Dos");
         }
     }
@@ -92,24 +96,64 @@ public class GeneralProgression : MonoBehaviour
     {
         float addValue = 0f;
         addValue = actualValue / maxValue;
-        porcentajeUno += addValue;
-        progressSlider.value = porcentajeUno;
-        value.text = Mathf.Round(porcentajeUno * 100) + "%";
+
+        if (porcentajeUno < limitePorcentaje)
+        {
+            porcentajeUno += addValue;
+            if(porcentajeUno > limitePorcentaje)
+            {
+                porcentajeUno = limitePorcentaje;
+            }
+            progressSlider.value = porcentajeUno;
+            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+            //WriteOnJSON(porcentajeUno, porcentajeDos);
+            
+        }
+        else
+        {
+            porcentajeUno = limitePorcentaje;
+            progressSlider.value = 1f;
+            value.text = Mathf.Round(limitePorcentaje * 100) + "%";
+            //WriteOnJSON(porcentajeUno, porcentajeDos);
+        }
+
         WriteOnJSON(porcentajeUno, porcentajeDos);
         Debug.Log("Se guardo en json: " + addValue);
+
+        
     }
 
     void ProgressSliderTeamTwo(float actualValue)
     { 
         float addValue = 0f;
         addValue = actualValue / maxValue;
-        //print("Valor antes: " + porcentajeDos);
-        porcentajeDos += addValue;
-        //print("Valor Despues suma: " + porcentajeDos);
-        progressSlider.value = porcentajeDos;
-        value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        ////print("Valor antes: " + porcentajeDos);
+        //porcentajeDos += addValue;
+        ////print("Valor Despues suma: " + porcentajeDos);
+        //progressSlider.value = porcentajeDos;
+        //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        //WriteOnJSON(porcentajeUno, porcentajeDos);
+        ////print("Valor en Json: " + porcentajeDos);
+       
+
+        if (porcentajeUno < limitePorcentaje)
+        {
+            porcentajeUno += addValue;
+            if (porcentajeDos > limitePorcentaje)
+            {
+                porcentajeDos = limitePorcentaje;
+            }
+            progressSlider.value = porcentajeUno;
+            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+        }
+        else
+        {
+            porcentajeDos = limitePorcentaje;
+            progressSlider.value = 1f;
+            value.text = Mathf.Round(limitePorcentaje * 100) + "%";
+        }
+
         WriteOnJSON(porcentajeUno, porcentajeDos);
-        //print("Valor en Json: " + porcentajeDos);
         Debug.LogWarning("Se guardo en json: " + addValue);
     }
 
@@ -126,4 +170,37 @@ public class GeneralProgression : MonoBehaviour
             return newProgressValue;
         }
     }
+
+    void ShowDataFromJson(Teams teams)
+    {
+        porcentajeUno = teams.progress;
+        if (porcentajeUno < limitePorcentaje)
+        {
+            progressSlider.value = porcentajeUno;
+            value.text = Mathf.Round(porcentajeUno * 100) + "%";
+        }
+        else
+        {
+            porcentajeUno = limitePorcentaje;
+            progressSlider.value = limitePorcentaje;
+            value.text = Mathf.Round(limitePorcentaje * 100) + "%";
+        }
+    }
+
+    void ShowDataFromJsonTeamTwo(Teams teams)
+    {
+        porcentajeDos = teams.progress;
+        if (porcentajeDos < limitePorcentaje)
+        {
+            progressSlider.value = porcentajeDos;
+            value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        }
+        else
+        {
+            porcentajeDos = limitePorcentaje;
+            progressSlider.value = limitePorcentaje;
+            value.text = Mathf.Round(limitePorcentaje * 100) + "%";
+        }
+    }
+
 }

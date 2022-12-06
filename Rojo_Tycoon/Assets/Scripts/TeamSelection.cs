@@ -10,9 +10,10 @@ using UnityEngine.SceneManagement;
 
 public class TeamSelection : MonoBehaviour
 {
+    public PrefabInstantiation ID_Prefab;
     public Students[] teamOne;
     public Students[] teamTwo;
-    public Students[] teamThree;
+    //public Students[] teamThree;
 
     public Students[] students;
 
@@ -239,7 +240,7 @@ public class TeamSelection : MonoBehaviour
 
     void ShowTeamCards()
     {
-        nameText.text = teamOne[0].name;
+        studentsNames.text = teamOne[0].name;
         personalityText.text = teamOne[0].personality;
     }
     public void DisabledStartButton()

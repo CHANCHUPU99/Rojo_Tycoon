@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06881809, g: 0.06466046, b: 0.046413995, a: 1}
+  m_IndirectSpecularColor: {r: 0.06881814, g: 0.06466047, b: 0.0464139, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2101,9 +2101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876047b166f9cc743b50bf5ab83341c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID_Prefab: {fileID: 0}
   teamOne: []
   teamTwo: []
-  teamThree: []
   students: []
   studentsNames: {fileID: 1300224422}
   ActualTeamText: {fileID: 836597450}
@@ -18113,7 +18113,7 @@ MonoBehaviour:
   noticeImage: {fileID: 773300831}
   slider: {fileID: 1529282021}
   button: {fileID: 238349536}
-  button2: {fileID: 808355434}
+  button2: {fileID: 664397559}
   text: {fileID: 494399921}
   textTeams: {fileID: 836597450}
   daysLeftScript:
