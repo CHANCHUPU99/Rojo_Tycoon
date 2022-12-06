@@ -21,6 +21,8 @@ public class PrefabInstantiation : MonoBehaviour
         {
             GameObject m_Instance = Instantiate(prefab, CardPositionOne[i].position, Quaternion.identity,
             parentPrefab.transform) as GameObject;
+
+            
         }
 
     }
