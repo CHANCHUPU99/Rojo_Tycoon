@@ -10,6 +10,9 @@ public class GeneralProgression : MonoBehaviour
 {
     const float limitePorcentaje = 1.0f;
 
+    string encryptedJsonTeamOne;
+    string encryptedJsonTeamTwo;
+
     Slider progressSlider;
     public float max;    
     public TextMeshProUGUI value;
@@ -65,11 +68,14 @@ public class GeneralProgression : MonoBehaviour
         //Debug.LogError("isTeamTwo on GP: " + isTeamTwo);
         if(isTeamTwo == false)
         {
-            
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             string json = File.ReadAllText(path);
             Teams teams = JsonUtility.FromJson<Teams>(json);
             ShowDataFromJson(teams);
+
+            //encryptedJsonTeamOne = EncryptJson.instance.EncryptJsonFile(json);
+            //print(encryptedJsonTeamOne);
+            
             
             Debug.Log("Se leyó equipo uno");
 
@@ -77,6 +83,8 @@ public class GeneralProgression : MonoBehaviour
             string json2 = File.ReadAllText(path2);
             Teams team2 = JsonUtility.FromJson<Teams>(json2);
             porcentajeDos = team2.progress;
+
+            //encryptedJsonTeamTwo = EncryptJson.instance.EncryptJsonFile(json2);
         }
         else
         {
@@ -89,6 +97,8 @@ public class GeneralProgression : MonoBehaviour
             //Debug.Log("Se leyó equipo Dos");
             ShowDataFromJsonTeamTwo(teams);
             Debug.Log("Se leyó equipo Dos");
+
+            //encryptedJsonTeamTwo = EncryptJson.instance.EncryptJsonFile(json);
         }
     }
 
