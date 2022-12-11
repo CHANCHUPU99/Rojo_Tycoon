@@ -34,6 +34,7 @@ public class TeamProgressManager : MonoBehaviour
             studentGeneralStatus = (student.responsibilityLevel + student.labor + student.creativity);
             teamOneProductivity += studentGeneralStatus;
             teamOneProductivity /= 4;
+            //teamOneProductivity /= 2;
             studentGeneralStatus = 0;
         }
 
@@ -42,6 +43,7 @@ public class TeamProgressManager : MonoBehaviour
             studentGeneralStatus = (student.responsibilityLevel + student.labor + student.creativity);
             teamTwoProductivity += studentGeneralStatus;
             teamTwoProductivity /= 4;
+            //teamTwoProductivity /= 2;
             studentGeneralStatus = 0;
         }
 
