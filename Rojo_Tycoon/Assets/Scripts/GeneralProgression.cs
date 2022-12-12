@@ -34,12 +34,13 @@ public class GeneralProgression : MonoBehaviour
 
     }
           
-    public void RefreshSlider(float actualValue, int ActualTeam)
+    public void RefreshSlider(int actualValue, int ActualTeam)
     {
         switch(ActualTeam)
         {
             case 1:
                 ProgressSliderTeamOne(NewProgressValue(actualValue, true));
+                print("actual value: "+ actualValue);
                 break;
             case 2:
                 ProgressSliderTeamTwo(NewProgressValue(actualValue, false));
@@ -101,7 +102,7 @@ public class GeneralProgression : MonoBehaviour
 
             //porcentajeDos = teams.progress;
             //progressSlider.value = porcentajeDos;
-            //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+            //value.text = System.Math.Round(porcentajeDos * 100) + "%";
             //Debug.Log("Se leyó equipo Dos");
             //ShowDataFromJsonTeamTwo(teams);
 
@@ -117,7 +118,7 @@ public class GeneralProgression : MonoBehaviour
     {
         float addValue = 0f;
         addValue = actualValue / maxValue;
-
+        Debug.Log("Se guardo en json: " + addValue);
         if (porcentajeUno < limitePorcentaje)
         {
             porcentajeUno += addValue;
@@ -152,7 +153,7 @@ public class GeneralProgression : MonoBehaviour
         //porcentajeDos += addValue;
         ////print("Valor Despues suma: " + porcentajeDos);
         //progressSlider.value = porcentajeDos;
-        //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        //value.text = System.Math.Round(porcentajeDos * 100) + "%";
         //WriteOnJSON(porcentajeUno, porcentajeDos);
         ////print("Valor en Json: " + porcentajeDos);
        
@@ -178,7 +179,7 @@ public class GeneralProgression : MonoBehaviour
         Debug.LogWarning("Se guardo en json: " + addValue);
     }
 
-    float NewProgressValue(float actualValue, bool TeamOne)
+    float NewProgressValue(int actualValue, bool TeamOne)
     {
         if(TeamOne)
         {
