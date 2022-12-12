@@ -7414,7 +7414,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2121658970}
         m_TargetAssemblyTypeName: Instantiate, Assembly-CSharp
-        m_MethodName: AddProgressButtonOne
+        m_MethodName: AddProgressButtonTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20369,6 +20369,10 @@ MonoBehaviour:
     progressValue: 4
   - activity: Subir cambios al Git sin avisar
     progressValue: -4
+  - activity: Pedirle ayuda a Marco
+    progressValue: 6
+  - activity: Trabjar sin actualizar GIT
+    progressValue: -5
   activitiesManagerTwo:
   - activity: Trabajar mientras comes
     progressValue: 1
