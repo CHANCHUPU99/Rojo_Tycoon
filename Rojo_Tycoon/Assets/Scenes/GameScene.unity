@@ -2110,6 +2110,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   personalityText: {fileID: 0}
   startGameButton: {fileID: 524059380}
+  teamsText: {fileID: 0}
 --- !u!4 &184413836
 Transform:
   m_ObjectHideFlags: 0
@@ -20375,13 +20376,13 @@ MonoBehaviour:
     progressValue: -6
   - activity: Bajar assets de paginas dudosas
     progressValue: -4
-  - activity: Conectar otro proyecto al GitHub
+  - activity: Subir proyecto equivocado al GitHub
     progressValue: -5
-  - activity: 'Subir cambios al main avisando '
+  - activity: 'Subir cambios al Main avisando '
     progressValue: 7
   - activity: 'Distraer a tu equipo '
     progressValue: -5
-  - activity: Irte de Rumba
+  - activity: Irte de rumba
     progressValue: -6
   - activity: "Clase extra de programaci\xF3n"
     progressValue: 8
@@ -20390,7 +20391,7 @@ MonoBehaviour:
   - activity: Sacar ideas de codigo ajeno
     progressValue: 4
   - activity: Silenciar el grupo de proyecto
-    progressValue: -8
+    progressValue: -5
   - activity: Ir acorde al Trello
     progressValue: 5
   - activity: 'Alterar valores sin avisar '
@@ -20399,16 +20400,16 @@ MonoBehaviour:
     progressValue: 4
   - activity: No ir de acuerdo al Trello
     progressValue: -2
-  - activity: 'Jugar golf y no trabjar '
+  - activity: 'Jugar juego de golf y no trabajar '
     progressValue: -5
   - activity: Ver el mundial y no trabajar
     progressValue: -5
   activitiesManagerTwo:
   - activity: Trabajar mientras comes
     progressValue: 2
-  - activity: Procastinar actividades
+  - activity: Procrastinar actividades
     progressValue: 0
-  - activity: trabajar a ultima hora
+  - activity: Trabajar a ultima hora
     progressValue: 2
   - activity: Avanzar el HUD
     progressValue: 5
@@ -20422,11 +20423,11 @@ MonoBehaviour:
     progressValue: 8
   - activity: Pedirle ayuda a Pablito
     progressValue: -5
-  - activity: Usar una version anterior de unity
+  - activity: Usar una version anterior de Unity
     progressValue: -4
-  - activity: Clonar el proyecto del git
+  - activity: Clonar mal el proyecto del git
     progressValue: -6
-  - activity: 'Jugar terraria y no trabjar '
+  - activity: 'Jugar terraria y no trabajar '
     progressValue: -7
   - activity: Ir a una posada
     progressValue: -4
@@ -20442,13 +20443,13 @@ MonoBehaviour:
     progressValue: 0
   - activity: "No hacer revisi\xF3n del progreso"
     progressValue: -4
-  - activity: Trabjar en clase de silverio
+  - activity: Trabjar en clase de Silverio
     progressValue: 5
   - activity: Discutir con tu equipo
     progressValue: -5
-  - activity: Bostesar durante el trabajo
-    progressValue: -5
-  - activity: Desvelarse jugando yu-gi-oh
+  - activity: Bostezar durante la clase
+    progressValue: 0
+  - activity: Desvelarse jugando Yu-Gi-Oh
     progressValue: -6
   buttonOne: {fileID: 238349532}
   buttonTwo: {fileID: 664397557}
