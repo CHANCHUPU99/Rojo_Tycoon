@@ -11150,8 +11150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11753,7 +11753,7 @@ MonoBehaviour:
   audioSource: {fileID: 1092129234}
   clip: {fileID: 8300000, guid: 7333b0b75ab1cb540a2f0bb98ec78733, type: 3}
   audioSourceTwo: {fileID: 1092129236}
-  clipTwo: {fileID: 8300000, guid: ae79481312b6f8d45a2494d2678cfbf9, type: 3}
+  clipTwo: {fileID: 8300000, guid: 9e70933d8f9c81d42a2f5e78935ae488, type: 3}
 --- !u!82 &1092129234
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11875,7 +11875,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ae79481312b6f8d45a2494d2678cfbf9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9e70933d8f9c81d42a2f5e78935ae488, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.152
   m_Pitch: 1
@@ -12573,8 +12573,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20356,38 +20356,100 @@ MonoBehaviour:
   progression: {fileID: 1529282022}
   activitiesManager:
   - activity: Trabajar Mucho
-    progressValue: 5
-  - activity: Tomarte el dia
+    progressValue: 6
+  - activity: Tomarte el dia libre
     progressValue: 0
   - activity: Trabajar despues de comer
     progressValue: 3
   - activity: Lluvia de ideas en equipo
-    progressValue: 6
+    progressValue: 5
   - activity: Corregir Bugs
-    progressValue: 2
-  - activity: Pedirle ayuda a Rojo
     progressValue: 4
+  - activity: Pedirle ayuda a Rojo
+    progressValue: 5
   - activity: Subir cambios al Git sin avisar
-    progressValue: -4
+    progressValue: -5
   - activity: Pedirle ayuda a Marco
+    progressValue: 7
+  - activity: Trabjar sin actualizar Github
+    progressValue: -6
+  - activity: Bajar assets de paginas dudosas
+    progressValue: -4
+  - activity: Conectar otro proyecto al GitHub
+    progressValue: -5
+  - activity: 'Subir cambios al main avisando '
+    progressValue: 7
+  - activity: 'Distraer a tu equipo '
+    progressValue: -5
+  - activity: Irte de Rumba
+    progressValue: -6
+  - activity: "Clase extra de programaci\xF3n"
+    progressValue: 8
+  - activity: "Pedir ayuda a tus compa\xF1eros"
     progressValue: 6
-  - activity: Trabjar sin actualizar GIT
+  - activity: Sacar ideas de codigo ajeno
+    progressValue: 4
+  - activity: Silenciar el grupo de proyecto
+    progressValue: -8
+  - activity: Ir acorde al Trello
+    progressValue: 5
+  - activity: 'Alterar valores sin avisar '
+    progressValue: -5
+  - activity: Trabjar en clase Tamara
+    progressValue: 4
+  - activity: No ir de acuerdo al Trello
+    progressValue: -2
+  - activity: 'Jugar golf y no trabjar '
+    progressValue: -5
+  - activity: Ver el mundial y no trabajar
     progressValue: -5
   activitiesManagerTwo:
   - activity: Trabajar mientras comes
-    progressValue: 1
-  - activity: procastinar
+    progressValue: 2
+  - activity: Procastinar actividades
     progressValue: 0
   - activity: trabajar a ultima hora
     progressValue: 2
   - activity: Avanzar el HUD
-    progressValue: 2
+    progressValue: 5
   - activity: Reunirte con el equipo
-    progressValue: 6
-  - activity: Pedirle ayud a Rojo en la madrugada
-    progressValue: -2
+    progressValue: 7
+  - activity: Pedirle ayuda Rojo en la madrugada
+    progressValue: -7
   - activity: Trabajar sin actualizar Git
-    progressValue: -3
+    progressValue: -6
+  - activity: Clase de Shaders con Josue
+    progressValue: 8
+  - activity: Pedirle ayuda a Pablito
+    progressValue: -5
+  - activity: Usar una version anterior de unity
+    progressValue: -4
+  - activity: Clonar el proyecto del git
+    progressValue: -6
+  - activity: 'Jugar terraria y no trabjar '
+    progressValue: -7
+  - activity: Ir a una posada
+    progressValue: -4
+  - activity: Trabajar borracho
+    progressValue: -8
+  - activity: Revisar grabaciones de clases
+    progressValue: 6
+  - activity: Pedir ayuda en StackOverflow
+    progressValue: 5
+  - activity: Respetar el sistema SCRUM
+    progressValue: 7
+  - activity: ' Adelantar las 100 derivadas de nestor'
+    progressValue: 0
+  - activity: "No hacer revisi\xF3n del progreso"
+    progressValue: -4
+  - activity: Trabjar en clase de silverio
+    progressValue: 5
+  - activity: Discutir con tu equipo
+    progressValue: -5
+  - activity: Bostesar durante el trabajo
+    progressValue: -5
+  - activity: Desvelarse jugando yu-gi-oh
+    progressValue: -6
   buttonOne: {fileID: 238349532}
   buttonTwo: {fileID: 664397557}
   numberOfChanges: 0

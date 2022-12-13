@@ -35,6 +35,7 @@ public class TeamSelection : MonoBehaviour
 
     public Button startGameButton;
 
+    public GameObject teamsText;
     private void Awake()
     {
         instance = this;
@@ -253,12 +254,16 @@ public class TeamSelection : MonoBehaviour
     public void DisabledStartButton()
     {
         startGameButton.interactable = false;
+      
         //startGameButton.canvasRenderer.SetAlpha(100f);
     }
 
     public void EnabledStartButton()
     {
         startGameButton.interactable = true;
+        teamsText.SetActive(true);
+        
+
         //startGameButton.canvasRenderer.SetAlpha(100f);
     }
 
