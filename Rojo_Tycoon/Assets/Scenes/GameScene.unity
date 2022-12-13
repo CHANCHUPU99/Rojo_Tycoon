@@ -20357,21 +20357,21 @@ MonoBehaviour:
   progression: {fileID: 1529282022}
   activitiesManager:
   - activity: Trabajar Mucho
-    progressValue: 6
+    progressValue: 9
   - activity: Tomarte el dia libre
     progressValue: 0
   - activity: Trabajar despues de comer
-    progressValue: 3
+    progressValue: 7
   - activity: Lluvia de ideas en equipo
-    progressValue: 5
+    progressValue: 8
   - activity: Corregir Bugs
     progressValue: 4
   - activity: Pedirle ayuda a Rojo
-    progressValue: 5
+    progressValue: 10
   - activity: Subir cambios al Git sin avisar
-    progressValue: -5
+    progressValue: -6
   - activity: Pedirle ayuda a Marco
-    progressValue: 7
+    progressValue: 13
   - activity: Trabjar sin actualizar Github
     progressValue: -6
   - activity: Bajar assets de paginas dudosas
@@ -20379,42 +20379,42 @@ MonoBehaviour:
   - activity: Subir proyecto equivocado al GitHub
     progressValue: -5
   - activity: 'Subir cambios al Main avisando '
-    progressValue: 7
+    progressValue: 8
   - activity: 'Distraer a tu equipo '
     progressValue: -5
   - activity: Irte de rumba
-    progressValue: -6
+    progressValue: -5
   - activity: "Clase extra de programaci\xF3n"
     progressValue: 8
   - activity: "Pedir ayuda a tus compa\xF1eros"
-    progressValue: 6
+    progressValue: 9
   - activity: Sacar ideas de codigo ajeno
-    progressValue: 4
+    progressValue: 7
   - activity: Silenciar el grupo de proyecto
     progressValue: -5
   - activity: Ir acorde al Trello
-    progressValue: 5
+    progressValue: 7
   - activity: 'Alterar valores sin avisar '
     progressValue: -5
   - activity: Trabjar en clase Tamara
-    progressValue: 4
+    progressValue: 9
   - activity: No ir de acuerdo al Trello
-    progressValue: -2
+    progressValue: -3
   - activity: 'Jugar juego de golf y no trabajar '
     progressValue: -5
   - activity: Ver el mundial y no trabajar
-    progressValue: -5
+    progressValue: -6
   activitiesManagerTwo:
   - activity: Trabajar mientras comes
-    progressValue: 2
+    progressValue: 7
   - activity: Procrastinar actividades
     progressValue: 0
   - activity: Trabajar a ultima hora
-    progressValue: 2
+    progressValue: 6
   - activity: Avanzar el HUD
-    progressValue: 5
-  - activity: Reunirte con el equipo
     progressValue: 7
+  - activity: Reunirte con el equipo
+    progressValue: 8
   - activity: Pedirle ayuda Rojo en la madrugada
     progressValue: -7
   - activity: Trabajar sin actualizar Git
@@ -20434,9 +20434,9 @@ MonoBehaviour:
   - activity: Trabajar borracho
     progressValue: -8
   - activity: Revisar grabaciones de clases
-    progressValue: 6
+    progressValue: 9
   - activity: Pedir ayuda en StackOverflow
-    progressValue: 5
+    progressValue: 7
   - activity: Respetar el sistema SCRUM
     progressValue: 7
   - activity: ' Adelantar las 100 derivadas de nestor'
