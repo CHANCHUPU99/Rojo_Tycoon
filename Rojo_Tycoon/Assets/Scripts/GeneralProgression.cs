@@ -10,6 +10,9 @@ public class GeneralProgression : MonoBehaviour
 {
     const float limitePorcentaje = 1.0f;
 
+    string encryptedJsonTeamOne;
+    string encryptedJsonTeamTwo;
+
     Slider progressSlider;
     public float max;    
     public TextMeshProUGUI value;
@@ -31,12 +34,13 @@ public class GeneralProgression : MonoBehaviour
 
     }
           
-    public void RefreshSlider(float actualValue, int ActualTeam)
+    public void RefreshSlider(int actualValue, int ActualTeam)
     {
         switch(ActualTeam)
         {
             case 1:
                 ProgressSliderTeamOne(NewProgressValue(actualValue, true));
+                print("actual value: "+ actualValue);
                 break;
             case 2:
                 ProgressSliderTeamTwo(NewProgressValue(actualValue, false));
@@ -47,15 +51,17 @@ public class GeneralProgression : MonoBehaviour
 
     public void WriteOnJSON(float progressTeamOne, float progressTeamTwo)
     {
-        string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
-        Teams teams = new Teams(progressTeamOne);
-        string json = JsonUtility.ToJson(teams, true);
-        File.WriteAllText(path, json);
+        //string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
+        //Teams teams = new Teams(progressTeamOne);
+        //string json = JsonUtility.ToJson(teams, true);
+        //File.WriteAllText(path, json);
 
-        string pathTwo = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
-        Teams teamsTwo = new Teams(progressTeamTwo);
-        string jsonTwo = JsonUtility.ToJson(teamsTwo, true);
-        File.WriteAllText(pathTwo, jsonTwo);
+        //string pathTwo = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
+        //Teams teamsTwo = new Teams(progressTeamTwo);
+        //string jsonTwo = JsonUtility.ToJson(teamsTwo, true);
+        //File.WriteAllText(pathTwo, jsonTwo);
+
+        EncryptJson.instance.WriteOnJSON(progressTeamOne, progressTeamTwo);
 
         //print("Se llamo escribir json");
     }
@@ -65,30 +71,46 @@ public class GeneralProgression : MonoBehaviour
         //Debug.LogError("isTeamTwo on GP: " + isTeamTwo);
         if(isTeamTwo == false)
         {
-            
-            string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
+
+            EncryptJson.instance.ReadJson();
+            /*string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             string json = File.ReadAllText(path);
-            Teams teams = JsonUtility.FromJson<Teams>(json);
-            ShowDataFromJson(teams);
+            Teams teams = JsonUtility.FromJson<Teams>(json);*/
+            ShowDataFromJson(EncryptJson.instance.teamOne);
+
+            //encryptedJsonTeamOne = EncryptJson.instance.EncryptJsonFile(json);
+            //print(encryptedJsonTeamOne);
+            
             
             Debug.Log("Se leyó equipo uno");
 
-            string path2 = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
-            string json2 = File.ReadAllText(path2);
-            Teams team2 = JsonUtility.FromJson<Teams>(json2);
-            porcentajeDos = team2.progress;
+            //string path2 = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
+            //string json2 = File.ReadAllText(path2);
+            //Teams team2 = JsonUtility.FromJson<Teams>(json2);
+            porcentajeDos = EncryptJson.instance.teamTwo.progress;
+
+            //encryptedJsonTeamTwo = EncryptJson.instance.EncryptJsonFile(json2);
         }
         else
         {
-            string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
+            EncryptJson.instance.ReadJson();
+
+
+            /*string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
             string json = File.ReadAllText(path);
-            Teams teams = JsonUtility.FromJson<Teams>(json);
+            Teams teams = JsonUtility.FromJson<Teams>(json);*/
+
             //porcentajeDos = teams.progress;
             //progressSlider.value = porcentajeDos;
-            //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+            //value.text = System.Math.Round(porcentajeDos * 100) + "%";
             //Debug.Log("Se leyó equipo Dos");
-            ShowDataFromJsonTeamTwo(teams);
+            //ShowDataFromJsonTeamTwo(teams);
+
+            ShowDataFromJsonTeamTwo(EncryptJson.instance.teamTwo);
+
             Debug.Log("Se leyó equipo Dos");
+
+            //encryptedJsonTeamTwo = EncryptJson.instance.EncryptJsonFile(json);
         }
     }
 
@@ -96,7 +118,7 @@ public class GeneralProgression : MonoBehaviour
     {
         float addValue = 0f;
         addValue = actualValue / maxValue;
-
+        Debug.Log("Se guardo en json: " + addValue);
         if (porcentajeUno < limitePorcentaje)
         {
             porcentajeUno += addValue;
@@ -131,7 +153,7 @@ public class GeneralProgression : MonoBehaviour
         //porcentajeDos += addValue;
         ////print("Valor Despues suma: " + porcentajeDos);
         //progressSlider.value = porcentajeDos;
-        //value.text = Mathf.Round(porcentajeDos * 100) + "%";
+        //value.text = System.Math.Round(porcentajeDos * 100) + "%";
         //WriteOnJSON(porcentajeUno, porcentajeDos);
         ////print("Valor en Json: " + porcentajeDos);
        
@@ -157,7 +179,7 @@ public class GeneralProgression : MonoBehaviour
         Debug.LogWarning("Se guardo en json: " + addValue);
     }
 
-    float NewProgressValue(float actualValue, bool TeamOne)
+    float NewProgressValue(int actualValue, bool TeamOne)
     {
         if(TeamOne)
         {

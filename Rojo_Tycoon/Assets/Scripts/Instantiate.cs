@@ -6,6 +6,9 @@ using TMPro;
 
 public class Instantiate : MonoBehaviour
 {
+    int activitiesManagerTempNumberOne;
+    int activitiesManagerTempNumberTwo;
+
     public Button nextStudentButton;
 
     public TMP_Text text;
@@ -50,7 +53,7 @@ public class Instantiate : MonoBehaviour
             activitiesLeftPerTeam = 4;
         }
     }
-
+    
     public void RandomActivity()
     {
         randomNumber = Random.Range(0, activitiesManager.Length);
@@ -63,6 +66,7 @@ public class Instantiate : MonoBehaviour
 
         activitiesLeftPerTeam--;
 
+        print("Random Number in Random Activitie:  "+ randomNumber);
         StartCoroutine(SlowBoolForTeamNames());
 
         DisableButton();
@@ -93,6 +97,7 @@ public class Instantiate : MonoBehaviour
        {
            ActualTeam = 2;
        }
+        print("randomNumber value in progress Button: " + randomNumber);
        progression.RefreshSlider(activitiesManager[randomNumber].progressValue, ActualTeam);
        TurnOffButton();
 
