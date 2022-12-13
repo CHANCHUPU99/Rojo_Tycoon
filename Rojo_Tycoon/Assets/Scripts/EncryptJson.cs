@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using System;
 public class EncryptJson : MonoBehaviour
 {
     public static EncryptJson instance;
+
+    string newString = "";
 
     [HideInInspector]
     public Teams teamOne;
@@ -14,7 +16,7 @@ public class EncryptJson : MonoBehaviour
 
     int[] jsonInASCII;
 
-    string artek = "artek";
+    const string artek = "artek";
 
     int[] EncryptionWordInitialLength;
 
@@ -25,7 +27,7 @@ public class EncryptJson : MonoBehaviour
     int ie = 0;
 
     int[] newEncryptedValue;
-    int[] newUnencryptedValue;
+    string[] newUnencryptedValue;
 
     string encryptedJson;
 
@@ -40,6 +42,7 @@ public class EncryptJson : MonoBehaviour
     {
         instance = this;
         //WriteEncryptionStatus(false);
+        print("Encryption Status" + ReadEncryptionStatus());
     }
 
     public string EncryptJsonFile(string JSON)
@@ -47,14 +50,15 @@ public class EncryptJson : MonoBehaviour
         if (!ReadEncryptionStatus())
         {
             string encryptedJson = "";
-
+            print("se va a encriptar json");
             EncryptionWord();
             //print("paso uno");
             ConvertToAscii(JSON);
+            print("JSON TO ASCII: " + JSON);
             //print("paso dos");
             ChangeEncryptWordLength();
             //print("paso tres");
-            
+            print("se encriptó json");
             return encryptedJson = AddEncryptedValues(newEncryptionWordLength);
         }
         else
@@ -71,33 +75,39 @@ public class EncryptJson : MonoBehaviour
         {
             jsonInASCII[i] = (int)json[i];
 
-            jsonFile += jsonInASCII[i] /*+ " ";*/;
+            jsonFile += jsonInASCII[i] + " "; ;
 
             //print("ascii: " + asciiValue);
             //print("jsonInASCII: " + jsonInASCII[i]);
         }
 
-        //print("jsonFile in ASCII: " + jsonFile);    
+        print("jsonFile in ASCII: " + jsonFile);
         //print(asciiValue);
     }
 
 
     public void ReadJson()
     {
-        if(ReadEncryptionStatus())
+        print("El status bool en ReadJson: " + ReadEncryptionStatus());
+        if (ReadEncryptionStatus())
         {
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             string json1 = File.ReadAllText(path);
             //string json = UnencryptJson(json1);
+            print("AQUI TODO BIEN");
             teamOne = JsonUtility.FromJson<Teams>(UnencryptJson(json1));
-            //print("Se desencriptó el json que estaba encriptado");
+            print("Se desencriptó el json que estaba encriptado");
+
             string path2 = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
             string json2 = File.ReadAllText(path2);
-            //string jsonTwo = UnencryptJson(json2);
             teamTwo = JsonUtility.FromJson<Teams>(UnencryptJson(json2));
+            print("json 2:" + json2);
+            print("Se desencriptó json dos");
+
         }
         else
         {
+            print("se ejectutó mal la lectura");
             string path = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             string json1 = File.ReadAllText(path);
             teamOne = JsonUtility.FromJson<Teams>(json1);
@@ -105,26 +115,30 @@ public class EncryptJson : MonoBehaviour
             string path2 = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
             string json2 = File.ReadAllText(path2);
             teamTwo = JsonUtility.FromJson<Teams>(json2);
+            print("Se leyo json no encriptado");
         }
     }
 
 
     public void WriteOnJSON(float progressTeamOne, float progressTeamTwo)
     {
-        if(!ReadEncryptionStatus())
+        if (!ReadEncryptionStatus())
         {
             string pathOne = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamOne.json";
             teamOne = new Teams(progressTeamOne);
             json1 = JsonUtility.ToJson(teamOne, true);
             //EncryptJsonFile(jsonOne);
             File.WriteAllText(pathOne, EncryptJsonFile(json1));
+            print("Se encriptó equipo uno");
 
             string pathTwo = Application.streamingAssetsPath + "/" + "GeneralProgressionTeamTwo.json";
             teamTwo = new Teams(progressTeamTwo);
             json2 = JsonUtility.ToJson(teamTwo, true);
-
             File.WriteAllText(pathTwo, EncryptJsonFile(json2));
-            //print("Se escribió y encriptó el json que no estaba encriptado");
+            print("Se encriptó equipo dos");
+            print(json2);
+
+            WriteEncryptionStatus(true);
         }
         else
         {
@@ -143,8 +157,8 @@ public class EncryptJson : MonoBehaviour
             teamTwo = new Teams(progressTeamTwo);
             json2 = JsonUtility.ToJson(teamTwo, true);
             File.WriteAllText(pathTwo, json2);
-            EncryptJson.instance.WriteEncryptionStatus(false);
-            //print("Se sobre-escribió json que estaba encriptado");
+            WriteEncryptionStatus(false);
+            print("Se sobre-escribió json que estaba encriptado");
         }
 
 
@@ -173,7 +187,7 @@ public class EncryptJson : MonoBehaviour
 
     void ChangeEncryptWordLength()
     {
-        newEncryptionWordLength = new int [jsonInASCII.Length];
+        newEncryptionWordLength = new int[jsonInASCII.Length];
         for (int i = 0; i < jsonInASCII.Length; i++)
         {
             if (ie >= EncryptionWordInitialLength.Length)
@@ -198,7 +212,7 @@ public class EncryptJson : MonoBehaviour
 
             //print("new value: " + newEncryptedValue[i]);
         }
-
+        print("new encrypted value:" + newEncryptedValue);
         WriteEncryptedJson();
 
         return encryptedJson;
@@ -209,54 +223,69 @@ public class EncryptJson : MonoBehaviour
         encryptedJson = "";
 
         for (int i = 0; i < newEncryptedValue.Length; i++)
-            encryptedJson += newEncryptedValue[i] /*+ " "*/;
-        //print("Encryted json: " + encryptedJson);
+        {
+
+            encryptedJson += newEncryptedValue[i] + " ";
+        }
+        encryptedJson = encryptedJson.Remove(encryptedJson.Length - 1, 1);
+        print("Encryted json: " + encryptedJson);
         //teams.Setter(true);
 
-        WriteEncryptionStatus(true);
-        //print("Se cambió el estatus a verdadero");
+
+        print("Se cambió el estatus a verdadero");
     }
 
-    public string UnencryptJson(string json)
+    string UnencryptJson(string json)
     {
+        newString = string.Empty;
         EncryptionWord();
 
-            newEncryptionWordLength = new int[json.Length];
-            for (int i = 0; i < json.Length; i++)
+        string[] jsonArray = json.Split(" ");
+        print(jsonArray[0]);
+
+        newEncryptionWordLength = new int[0];
+        newEncryptionWordLength = new int[jsonArray.Length];
+
+        for (int i = 0; i < jsonArray.Length; i++)
+        {
+            if (ie >= EncryptionWordInitialLength.Length)
             {
-                if (ie >= EncryptionWordInitialLength.Length)
-                {
-                    ie = 0;
-                }
-
-                newEncryptionWordLength[i] = EncryptionWordInitialLength[ie];
-
-                //print("position i: " + i + " NEW NUMBER: " + newEncryptionWordLength[i] + " array value i: " + ie);
-
-                ie++;
+                ie = 0;
             }
 
-            newUnencryptedValue = new int[json.Length];
-            for (int i = 0; i < json.Length; i++)
-            {
-                newUnencryptedValue[i] = (int)json[i] - newEncryptionWordLength[i];
-                //print("new value: " + newUnencryptedValue[i]);
-            }
+            newEncryptionWordLength[i] = EncryptionWordInitialLength[ie];
 
-        WriteUnencryptedJson();
-        //print("Json was unencrypted SUCCESFULLY");
-        return unencryptedJson;
+            //print("position i: " + i + " NEW NUMBER: " + newEncryptionWordLength[i] + " array value i: " + ie);
+
+            ie++;
+        }
+
+        newUnencryptedValue = new string[jsonArray.Length];
+
+        for (int i = 0; i < jsonArray.Length; i++)
+        {
+            //newUnencryptedValue[i];
+            //int x = Int32.Parse(jsonArray[i]);
+            //print("x: " + x);
+            newString += (char)(Int32.Parse(jsonArray[i]) - newEncryptionWordLength[i]);
+            print(newString);
+        }
+        print(newString);
+        //WriteUnencryptedJson();
+        print("Json was unencrypted SUCCESFULLY");
+        WriteEncryptionStatus(false);
+        return newString;
     }
 
     void WriteUnencryptedJson()
     {
-        unencryptedJson = "";
+        //unencryptedJson = "";
 
-        for (int i = 0; i < newUnencryptedValue.Length; i++)
-            unencryptedJson += (char)newUnencryptedValue[i] /*+ " "*/;
-        //print("Se desencriptó el JSON: " + unencryptedJson);
-        WriteEncryptionStatus(false);
-        //print("Se cambio el status a falso");
+        //for (int i = 0; i < newUnencryptedValue.Length; i++)
+        //    unencryptedJson += newUnencryptedValue[i] /*+ " "*/;
+        print("Se desencriptó el JSON: " + newString);
+        //WriteEncryptionStatus(false);
+        print("Se cambio el status a falso");
         //teams.Setter(false);
     }
 
@@ -276,4 +305,5 @@ public class EncryptJson : MonoBehaviour
         EncryptionStatus encryption = JsonUtility.FromJson<EncryptionStatus>(json);
         return encryption.isEncrypted;
     }
+
 }
